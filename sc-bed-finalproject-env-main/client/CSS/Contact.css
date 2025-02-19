@@ -1,0 +1,66 @@
+body{
+    position:relative;
+    }
+    
+    .contactBackground{
+        position: fixed;
+        background-image: url(/Images/ContactBackground.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(10px);
+        z-index: -1;
+        width: 70%;
+        height: 100%;
+        
+    }
+    
+    .Content{
+        position:relative;
+        z-index: 1;
+    }
+    
+    .topBanner{
+        background-color: #62df8e;
+        color: white;
+        height: 100px;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    .ContactForm{
+        background-color: rgb(248, 246, 246);
+        margin-left: 350px;
+        margin-right: 350px;
+        padding-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding-top:2px;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    
+    
+    .YourEmail{
+        font-size: large;
+        font-weight: medium;
+    }
+    
+    #message{
+        height: 200px;
+    }
+
+    footer{
+        z-index: 1;
+        color: white;
+        background-color: #3c3c3c;
+        text-align: center;
+    }
+    
+    hr{
+        width:80%;
+        color: white;
+        margin: left 20%;
+    }
