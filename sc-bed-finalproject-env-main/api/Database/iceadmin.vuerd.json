@@ -4,13 +4,13 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -10,
-    "scrollLeft": -326,
+    "scrollTop": 0,
+    "scrollLeft": -163,
     "zoomLevel": 1,
     "show": 447,
     "database": 4,
     "databaseName": "",
-    "canvasType": "@dineug/erd-editor/builtin-schema-sql",
+    "canvasType": "ERD",
     "language": 1,
     "tableNameCase": 4,
     "columnNameCase": 2,
@@ -50,29 +50,32 @@
         "comment": "Each Individual Appliance and all of its attributes",
         "columnIds": [
           "NJ2S8IS7TnCGJMeix9C33",
+          "pxmY9oNyT_sBKe1dDjf7F",
           "T2Ax5WKKbcckfMPjtsUwh",
           "U7_2XXUZx9uJpSYdijxtE",
-          "sBZ-mydLgRr931WC0vsQ2",
+          "e207irYLZ-7i-zq9TDTk1",
           "gdjbQpT_RioTq0ZK0Z-zk"
         ],
         "seqColumnIds": [
           "NJ2S8IS7TnCGJMeix9C33",
           "fvBV_T_nVQcwy_rY9wjFV",
+          "pxmY9oNyT_sBKe1dDjf7F",
           "T2Ax5WKKbcckfMPjtsUwh",
           "U7_2XXUZx9uJpSYdijxtE",
+          "e207irYLZ-7i-zq9TDTk1",
           "sBZ-mydLgRr931WC0vsQ2",
           "gdjbQpT_RioTq0ZK0Z-zk"
         ],
         "ui": {
-          "x": 208,
-          "y": 87,
+          "x": 192,
+          "y": 10,
           "zIndex": 2,
           "widthName": 60,
           "widthComment": 259,
           "color": ""
         },
         "meta": {
-          "updateAt": 1739996167849,
+          "updateAt": 1740081385170,
           "createAt": 1739991457940
         }
       },
@@ -157,7 +160,7 @@
         "comment": "",
         "dataType": "VARCHAR",
         "default": "",
-        "options": 11,
+        "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
@@ -166,7 +169,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1739996381477,
+          "updateAt": 1740081269657,
           "createAt": 1739991508792
         }
       },
@@ -569,6 +572,46 @@
           "updateAt": 1739996388007,
           "createAt": 1739995356177
         }
+      },
+      "pxmY9oNyT_sBKe1dDjf7F": {
+        "id": "pxmY9oNyT_sBKe1dDjf7F",
+        "tableId": "_FvmHbXCEIpBAim-wcGbH",
+        "name": "Name",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1740081247821,
+          "createAt": 1740081236064
+        }
+      },
+      "e207irYLZ-7i-zq9TDTk1": {
+        "id": "e207irYLZ-7i-zq9TDTk1",
+        "tableId": "_FvmHbXCEIpBAim-wcGbH",
+        "name": "Warranty",
+        "comment": "",
+        "dataType": "INT",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1740081377593,
+          "createAt": 1740081353497
+        }
       }
     },
     "relationshipEntities": {
@@ -591,8 +634,8 @@
           "columnIds": [
             "gdjbQpT_RioTq0ZK0Z-zk"
           ],
-          "x": 611,
-          "y": 175,
+          "x": 594,
+          "y": 110,
           "direction": 2
         },
         "meta": {
@@ -653,7 +696,7 @@
         "options(primaryKey)": 1739992763763,
         "options(notNull)": 1739996381477,
         "default": 1739996338173,
-        "options(autoIncrement)": 1739996360151
+        "options(autoIncrement)": 1740081269656
       }
     ],
     "fvBV_T_nVQcwy_rY9wjFV": [
@@ -884,11 +927,31 @@
     "sBZ-mydLgRr931WC0vsQ2": [
       "tableColumnEntities",
       1739995356176,
-      -1,
+      1740081375512,
       {
         "name": 1739995378926,
         "dataType": 1739995383969,
         "options(notNull)": 1739996388005
+      }
+    ],
+    "pxmY9oNyT_sBKe1dDjf7F": [
+      "tableColumnEntities",
+      1740081236060,
+      -1,
+      {
+        "name": 1740081240953,
+        "dataType": 1740081245057,
+        "options(notNull)": 1740081247820
+      }
+    ],
+    "e207irYLZ-7i-zq9TDTk1": [
+      "tableColumnEntities",
+      1740081353495,
+      -1,
+      {
+        "name": 1740081358841,
+        "dataType": 1740081369934,
+        "options(notNull)": 1740081377591
       }
     ]
   }

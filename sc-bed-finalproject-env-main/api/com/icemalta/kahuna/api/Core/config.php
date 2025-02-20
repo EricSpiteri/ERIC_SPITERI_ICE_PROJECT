@@ -1,7 +1,7 @@
 <?php
 
 //Database details
-$db_Name = 'user';
+$db_Name = 'Kahuna';
 $db_User = "root";
 $db_Password = "";
 
@@ -21,7 +21,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //load config file first for db connection
 require_once(CORE_PATH.DS."config.php");
 
-require_once(INC_PATH.DS."user.php");
+require_once(INC_PATH.DS."Account.php");
 require_once(INC_PATH.DS."Post.php");
 
 echo(INC_PATH.DS."user.php");
