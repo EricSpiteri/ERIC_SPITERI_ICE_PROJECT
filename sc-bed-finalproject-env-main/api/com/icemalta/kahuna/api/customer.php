@@ -1,11 +1,11 @@
 <?php
 
 
-class Account{
+class Customer{
 
 //db stuff
 private $conn;
-private $table = "Product";
+private $table = "Customer";
 
 private $alias = "u";
 
@@ -13,17 +13,11 @@ private $alias = "u";
 private static $db;
 
 
-private int $accountID;
-private $name;
-private $surname;
-private $nationality;
-private int $house;
-private $street;
-private $locality;
-private int $country_Number;
-private int $Mobile_Number;
-private $email ;
-private $password;
+private int $customerID;
+private $customer_Name;
+private $customer_Surname;
+private $email;
+private int $registration_Date;
 
 //constructor with db connection
 // a function that is triggered automatically when an instance of the class is created
@@ -37,7 +31,7 @@ public function __construct($db){
      public function read(){
         $query = "SELECT *
         FROM {$this->table} p
-        ORDER BY p.accountID ASC;";
+        ORDER BY p.customerID ASC;";
     
         $stmt = $this->conn->prepare($query);
     
@@ -48,27 +42,22 @@ public function __construct($db){
     
     }
     
-    //Display a single Product
+    //Display a single Customer
     public function readSingleAccount(){
         $query = "SELECT * FROM {$this->table} {$this->alias}
-        WHERE {$this->alias}.accountID = ?
+        WHERE {$this->alias}.customerID = ?
         LIMIT 1;";
     
         $stmt = $this->conn->prepare ($query);
-        $stmt->bindParam(1, $this->accountID);
+        $stmt->bindParam(1, $this->customerID);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row > 0){
-            $this->account_Name = $row["account_Name"];
-            $this->account_Surname = $row["account_Surname"];
-            $this->accountID = $row["accountID"];
+            $this->customer_Name = $row["customer_Name"];
+            $this->customer_Surname = $row["customer_Surname"];
+            $this->customerID = $row["customerID"];
             $this->email = $row["email"];
-            $this->nationality = $row["nationality"];
-            $this->house_Number = $row["house_Number"];
-            $this->street = $row["street"];
-            $this->locality = $row["locality"];
-            $this->country_Number = $row["country_Number"];
             $this->mobile_Number = $row["mobile_Number"];
 
     
@@ -79,13 +68,3 @@ public function __construct($db){
     }
     
     ?>
-
-
-
-
-
-
-
-
-}
-?>

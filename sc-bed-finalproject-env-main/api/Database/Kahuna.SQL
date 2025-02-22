@@ -24,7 +24,7 @@ CREATE TABLE Customer
   customer_Name       VARCHAR(255)  NOT NULL,
   customer_Surname    VARCHAR(255) NOT NULL, 
   email      VARCHAR(255) NOT NULL, 
-  registration_Date DATETIME NOT NULL, 
+  mobile_Number INT NOT NULL,
   PRIMARY KEY (customerID) 
 ) COMMENT 'The individual person the service is provided to';
 
@@ -33,8 +33,8 @@ CREATE TABLE Product
   serial_Number     VARCHAR(255)  NOT NULL,
   product_Name VARCHAR(255)  NOT NULL,
   price        INT      NOT NULL,
-  warranty     INT      NOT NULL,
-  purchase_Date DATETIME NOT NULL,
+  warranty     INT     NOT NULL,
+  purchase_Date DATE NOT NULL,
   customerID   INT      NOT NULL,
   PRIMARY KEY (serial_Number)
 ) COMMENT 'Each Individual Appliance and all of its attributes';
@@ -48,3 +48,6 @@ ALTER TABLE Account
   ADD CONSTRAINT FK_Customer_TO_Account
     FOREIGN KEY (customerID)
     REFERENCES Customer (customerID);
+
+INSERT INTO Customer (customerID, customer_Name, customer_Surname, email, mobile_Number)
+VALUES (12345, Eric, Spiteri, ericspiteri1410@gmail.com, 79489240)

@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -424,
-    "scrollLeft": -464,
+    "scrollTop": 0,
+    "scrollLeft": -215.9703,
     "zoomLevel": 1,
     "show": 447,
     "database": 4,
@@ -52,7 +52,7 @@
           "NJ2S8IS7TnCGJMeix9C33",
           "pxmY9oNyT_sBKe1dDjf7F",
           "T2Ax5WKKbcckfMPjtsUwh",
-          "U7_2XXUZx9uJpSYdijxtE",
+          "lpoPvggcA0v6UbdQ3qe0b",
           "e207irYLZ-7i-zq9TDTk1",
           "gdjbQpT_RioTq0ZK0Z-zk"
         ],
@@ -62,20 +62,21 @@
           "pxmY9oNyT_sBKe1dDjf7F",
           "T2Ax5WKKbcckfMPjtsUwh",
           "U7_2XXUZx9uJpSYdijxtE",
+          "lpoPvggcA0v6UbdQ3qe0b",
           "e207irYLZ-7i-zq9TDTk1",
           "sBZ-mydLgRr931WC0vsQ2",
           "gdjbQpT_RioTq0ZK0Z-zk"
         ],
         "ui": {
-          "x": 192,
-          "y": 10,
+          "x": 162.1032,
+          "y": 41.9588,
           "zIndex": 2,
           "widthName": 60,
           "widthComment": 259,
           "color": ""
         },
         "meta": {
-          "updateAt": 1740081385170,
+          "updateAt": 1740247704883,
           "createAt": 1739991457940
         }
       },
@@ -240,7 +241,7 @@
         "comment": "",
         "dataType": "INT",
         "default": "",
-        "options": 11,
+        "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 63,
@@ -249,7 +250,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1740233122311,
+          "updateAt": 1740247209748,
           "createAt": 1739991583814
         }
       },
@@ -320,7 +321,7 @@
         "comment": "",
         "dataType": "INT",
         "default": "",
-        "options": 11,
+        "options": 10,
         "ui": {
           "keys": 1,
           "widthName": 60,
@@ -329,7 +330,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1739996374949,
+          "updateAt": 1740247206104,
           "createAt": 1739991803180
         }
       },
@@ -609,8 +610,28 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1740233115775,
+          "updateAt": 1740247664190,
           "createAt": 1740081353497
+        }
+      },
+      "lpoPvggcA0v6UbdQ3qe0b": {
+        "id": "lpoPvggcA0v6UbdQ3qe0b",
+        "tableId": "_FvmHbXCEIpBAim-wcGbH",
+        "name": "purchase_Date",
+        "comment": "",
+        "dataType": "DATE",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 80,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1740247687663,
+          "createAt": 1740247667369
         }
       }
     },
@@ -634,8 +655,8 @@
           "columnIds": [
             "gdjbQpT_RioTq0ZK0Z-zk"
           ],
-          "x": 600,
-          "y": 110,
+          "x": 570.1032,
+          "y": 141.9588,
           "direction": 2
         },
         "meta": {
@@ -721,7 +742,7 @@
     "U7_2XXUZx9uJpSYdijxtE": [
       "tableColumnEntities",
       1739991569736,
-      -1,
+      1740247486387,
       {
         "name": 1740233112382,
         "dataType": 1739991985944,
@@ -745,7 +766,7 @@
         "name": 1740233122310,
         "dataType": 1739992304051,
         "options(primaryKey)": 1739992769523,
-        "options(autoIncrement)": 1739996373088
+        "options(autoIncrement)": 1740247209747
       }
     ],
     "_k2TEalZk4qhGsh4isVaT": [
@@ -795,7 +816,7 @@
         "name": 1739992070321,
         "dataType": 1739992127125,
         "options(primaryKey)": 1739992772933,
-        "options(autoIncrement)": 1739996374948
+        "options(autoIncrement)": 1740247206103
       }
     ],
     "moQtbvanj8Xu6RXpBANOu": [
@@ -950,8 +971,18 @@
       -1,
       {
         "name": 1740233115774,
-        "dataType": 1740081369934,
+        "dataType": 1740247664189,
         "options(notNull)": 1740081377591
+      }
+    ],
+    "lpoPvggcA0v6UbdQ3qe0b": [
+      "tableColumnEntities",
+      1740247667367,
+      -1,
+      {
+        "name": 1740247675176,
+        "dataType": 1740247684526,
+        "options(notNull)": 1740247687661
       }
     ]
   }
