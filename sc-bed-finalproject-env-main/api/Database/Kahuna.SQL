@@ -34,6 +34,7 @@ CREATE TABLE Product
   product_Name VARCHAR(255)  NOT NULL,
   price        INT      NOT NULL,
   warranty     INT      NOT NULL,
+  purchase_Date DATETIME NOT NULL,
   customerID   INT      NOT NULL,
   PRIMARY KEY (serial_Number)
 ) COMMENT 'Each Individual Appliance and all of its attributes';
