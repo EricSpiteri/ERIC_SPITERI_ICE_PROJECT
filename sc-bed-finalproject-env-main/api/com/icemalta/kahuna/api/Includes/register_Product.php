@@ -17,7 +17,7 @@ private int $customerID;
 private $customer_Name;
 private $customer_Surname;
 private $email;
-private int $registration_Date;
+private int $purchase_Date;
 
 //constructor with db connection
 // a function that is triggered automatically when an instance of the class is created
@@ -27,7 +27,7 @@ public function __construct($db){
     }
     
     
-    //Read all User Records
+    //Read all Customer Records
      public function read(){
         $query = "SELECT *
         FROM {$this->table} p
@@ -42,10 +42,9 @@ public function __construct($db){
     
     }
     
-    //Display a single Customer
-    public function readSingleAccount(){
-        $query = "SELECT * FROM {$this->table} {$this->alias}
-        WHERE {$this->alias}.customerID = ?
+    //Register a single Product
+    public function readSingleCustomer(){
+        $query = "INSERT * INTO {$this->table}
         LIMIT 1;";
     
         $stmt = $this->conn->prepare ($query);
@@ -54,11 +53,12 @@ public function __construct($db){
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row > 0){
+            $this->customerID = $row["customerID"];
+            $this->purchase_Date = $row["purchase_Date"];
             $this->customer_Name = $row["customer_Name"];
             $this->customer_Surname = $row["customer_Surname"];
-            $this->customerID = $row["customerID"];
-            $this->email = $row["email"];
-            $this->mobile_Number = $row["mobile_Number"];
+            $this->customer_Email = $row["customer_Email"];
+            
 
     
             

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../Bootstrap/css/Bootstrap.css">
+    <link rel="stylesheet" href="../CSS/Register.css">
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="title">
+            <h1 style="margin-left: 50px; padding-top:10px;">Register</h1>
+        </div>
+    </header>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.html">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="HTML/Products.html">Purchase Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/Registrations.html">Your Registrations</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="view_Products.html">View Your Products</a></li>
+            <li><a class="dropdown-item" href="./contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+<br>
+<br>
+
+
+    <!--Registration Form-->
+    <main>
+        <div class="container">
+            <form action="POST">
+            <h1>Register New Account</h1>
+            <br>
+
+            <div class="container">
+              <div class="row">
+
+              <div class="col-6">
+                <input type="text" class="form-control" id="name" name="name"  placeholder="Name" required>
+                <br>
+
+                <div class="row">
+
+                <div class="col-2">
+                <input type="number" class="form-control" id="countryCode" name="countryCode"  placeholder="+" required>
+                </div>
+
+                <!--Country Code Number-->
+                <div class="col-10">
+                <input type="number" class="form-control" id="mobileNumber" name="mobileNumber"  placeholder="Mobile Number" required>
+                </div>
+
+              </div>
+              
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control" id="surname" name="surname"  placeholder="Surname" required>
+                <br>
+                <input type="text" class="form-control" id="email" name="email"  placeholder="Email Address" required>
+                </div>
+
+              </div>
+
+              <br>
+
+              <div class="row">
+
+                <div class="col-6">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <br>
+                </div>
+               
+                <div class="col-6">
+                  <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" required>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+              </div>
+
+              <!--Personal Address-->
+              <h2>Home Address</h2>
+              <div class="row">
+
+               <div class="col-2">
+                <input type="number" class="form-control" id="houseNumber" name="houseNumber" placeholder="House Number" required>
+               </div>
+
+               <div class="col-3">
+                <input type="text" class="form-control" id="street" name="street" placeholder="Street" required>
+               </div>
+
+               <div class="col-4">
+                <input type="text" class="form-control" id="locality" name="locality" placeholder="Locality" required>
+               </div>
+
+               
+               </div>
+              </div>
+            </div>
+
+            <br>
+
+        
+
+           </div>
+
+           <br>
+           <br>
+           <br>
+
+         <!--Submit Button-->
+         <input type="submit" value="Register New Account">
+            </form>
+        </div>
+    </main>
+
+    <br>
+    <br>
+    <br>
+
+   <!--Footer-->
+   <footer>
+
+
+
+   </div>
+ 
+   <hr>
+ 
+   <div class="container-fluid">
+   <div class="row">
+ 
+     <div class="col-6">
+         <p2>        Contact Us: <br>
+             Phone: 1-800-123-4567<br>
+             Email: support@kahunaappliances.com</p2>
+     </div>
+ 
+     <div class="col-6">
+         <div class>
+             <p>87,<br> Triq Herbert Damarco,<br> Santa Lucija,<br> Malta</p>
+            </div>
+             
+ 
+ 
+           
+            
+ 
+     </div>
+   </div>
+   </div>
+ 
+     <hr>
+ 
+    <br>
+ 
+   </footer>
+    
+</body>
+</html>

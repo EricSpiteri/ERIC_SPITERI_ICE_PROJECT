@@ -14,6 +14,8 @@ private $price;
 private $warranty;
 private $purchase_Date;
 
+private $product_Image_ID;
+
 
 //constructor with db connection
 // a function that is triggered automatically when an instance of the class is created
@@ -22,7 +24,7 @@ $this->conn = $db;
 }
 
 
-//Read all User Records
+//Read all Product Records
  public function read(){
     $query = "SELECT *
     FROM {$this->table} p
@@ -54,6 +56,7 @@ public function readSingleProduct(){
         $this->price = $row["price"];
         $this->warranty = $row["warranty"];
         $this->purchase_Date = $row["purchase_Date"];
+        $this->product_Image = $row["product_Image_ID"];
 
         
     }

@@ -4,8 +4,8 @@ use com\icemalta\kahuna\util\ApiUtil;
 
 cors();
 
-$endPoints = [];
-$requestData = [];
+$endPoints = ['admin.php', 'create_Account.php','product.php', 'register_Product.php', 'user_Login.php', 'user_Logout.php', 'admin_Logout.php'];
+$requestData = ['admin.php', 'create_Account.php', 'view_Product.php', 'register_Product.php','user_Login.php', 'user_Logout.php', 'admin_Logout.php'];
 header("Content-Type: application/json; charset=UTF-8");
 
 /* BASE URI */

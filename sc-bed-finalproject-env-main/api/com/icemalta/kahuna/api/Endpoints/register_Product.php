@@ -2,12 +2,12 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-require_once("../../Core/Initialize.php");
-require_once("../../Core/Config.php");
-require_once("../../Includes/Customer.php");
+require_once("../../Core/initialize.php");
+require_once("../../Core/config.php");
+require_once("../../Includes/customer.php");
 
 
-//Display Posts
+//Display Customer
 
 $customer = new Customer($db);
 
@@ -26,6 +26,7 @@ if($customerNum > 0){
             "customer_Surname" => $customer_Surname,
             "email" => $email,
             "mobile_Number" => $mobilenumber,
+            "purchase_Date" => $purchase_Date,
 
         );
 

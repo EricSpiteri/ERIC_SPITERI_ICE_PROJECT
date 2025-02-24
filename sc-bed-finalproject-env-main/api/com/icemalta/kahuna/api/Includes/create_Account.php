@@ -1,7 +1,7 @@
 <?php
 
 
-class Account{
+class User_Account{
 
 //db stuff
 private $conn;
@@ -33,7 +33,7 @@ public function __construct($db){
     }
     
     
-    //Read all User Records
+    //Read all Account Records
      public function read(){
         $query = "SELECT *
         FROM {$this->table} p
@@ -48,10 +48,9 @@ public function __construct($db){
     
     }
     
-    //Display a single Product
-    public function readSingleAccount(){
-        $query = "SELECT * FROM {$this->table} {$this->alias}
-        WHERE {$this->alias}.accountID = ?
+    //Create an Account
+    public function createAccount(){
+        $query = "INSERT * INTO {$this->table}
         LIMIT 1;";
     
         $stmt = $this->conn->prepare ($query);
