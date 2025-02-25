@@ -11,7 +11,7 @@
     <!--Header-->
     <header>
         <div class="title">
-            <h1 style="margin-left: 50px; padding-top:10px;">Register</h1>
+            <h1 style="margin-left: 50px; padding-top:10px;">Welcome Administrator</h1>
         </div>
     </header>
 
@@ -36,8 +36,10 @@
             More
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="view_Products.html">View Your Products</a></li>
-            <li><a class="dropdown-item" href="./contact.html">Contact Us</a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="./Contact.php">Contact Us</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./FAQ.php">Frequently Asked Questions</a></li>
           </ul>
         </li>
       </ul>
@@ -58,20 +60,20 @@
     <main>
         <div class="container">
             <form action="POST">
-            <h1>Register New Account</h1>
+            <h1>Add Product to Database</h1>
             <br>
 
             <div class="container">
               <div class="row">
 
               <div class="col-6">
-                <input type="text" class="form-control" id="name" name="name"  placeholder="Name" required>
+                <input type="text" class="form-control" id="product_Name" name="product_Name"  placeholder="Product Name" required>
                 <br>
 
                 <div class="row">
 
                 <div class="col-2">
-                <input type="number" class="form-control" id="countryCode" name="countryCode"  placeholder="+" required>
+                <input type="text" class="form-control" id="serial_Number" name="countryCode"  placeholder="+" required>
                 </div>
 
                 <!--Country Code Number-->
@@ -123,8 +125,6 @@
                 <input type="text" class="form-control" id="locality" name="locality" placeholder="Locality" required>
                </div>
 
-               
-               </div>
               </div>
             </div>
 
