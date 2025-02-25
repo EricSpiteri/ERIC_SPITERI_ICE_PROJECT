@@ -1,15 +1,19 @@
-//LOGIN
+//Add Product
 
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
+document.getElementById('add_Product').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const serial_Number = document.getElementById('serial_Number').value;
+    const product_Name = document.getElementById('product_Name').value;
+    const price = document.getElementById('price').value;
+    const warranty = document.getElementById('warranty').value;
 
     const data = {
-        email: email,
-        password: password
+        serial_Number: serial_Number,
+        product_Name: product_Name,
+        price : price,
+        warranty : warranty,
     };
 
     // Send POST request to the backend
@@ -22,8 +26,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message === 'Administrator Logged-In') {
-            // Redirect to the admin page
+        if (data.message === 'Administrator Registered Product') {
+            // Redirect back
             window.location.href = '../HTML/add_Product(Admin).html';
         } else {
             // Show error message

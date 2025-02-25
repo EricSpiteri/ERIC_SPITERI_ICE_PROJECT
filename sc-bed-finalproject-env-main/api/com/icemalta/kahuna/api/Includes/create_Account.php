@@ -33,20 +33,7 @@ public function __construct($db){
     }
     
     
-    //Read all Account Records
-     public function read(){
-        $query = "SELECT *
-        FROM {$this->table} p
-        ORDER BY p.accountID ASC;";
-    
-        $stmt = $this->conn->prepare($query);
-    
-        $stmt->execute();
-    
-        return $stmt;
-    
-    
-    }
+
     
     //Create an Account
     public function createAccount(){

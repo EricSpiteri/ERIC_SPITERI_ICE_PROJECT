@@ -43,7 +43,7 @@ public function __construct($db){
     }
     
     //Register a single Product
-    public function readSingleCustomer(){
+    public function readSingleProduct(){
         $query = "INSERT * INTO {$this->table}
         LIMIT 1;";
     

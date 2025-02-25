@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../Bootstrap/css/Bootstrap.css">
-    <link rel="stylesheet" href="../CSS/Register.css">
+    <link rel="stylesheet" href="../CSS/add_Product(Admin).css">
 </head>
 <body>
     <!--Header-->
@@ -19,33 +19,6 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="../index.html">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="HTML/Products.html">Purchase Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="HTML/Registrations.html">Your Registrations</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"></a></li>
-            <li><a class="dropdown-item" href="./Contact.php">Contact Us</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./FAQ.php">Frequently Asked Questions</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -59,36 +32,27 @@
     <!--Registration Form-->
     <main>
         <div class="container">
-            <form action="POST">
+            <form id="add_Product">
             <h1>Add Product to Database</h1>
             <br>
 
             <div class="container">
               <div class="row">
-
-              <div class="col-6">
+                
+                <div class="col-6">
                 <input type="text" class="form-control" id="product_Name" name="product_Name"  placeholder="Product Name" required>
                 <br>
-
-                <div class="row">
-
-                <div class="col-2">
-                <input type="text" class="form-control" id="serial_Number" name="countryCode"  placeholder="+" required>
-                </div>
-
-                <!--Country Code Number-->
-                <div class="col-10">
-                <input type="number" class="form-control" id="mobileNumber" name="mobileNumber"  placeholder="Mobile Number" required>
-                </div>
+                <br>
+                <br>
 
               </div>
               
-              </div>
               <div class="col-6">
-                <input type="text" class="form-control" id="surname" name="surname"  placeholder="Surname" required>
+                <input type="text" class="form-control" id="serial_Number" name="serial_Number"  placeholder="Serial Number" required>
                 <br>
-                <input type="text" class="form-control" id="email" name="email"  placeholder="Email Address" required>
-                </div>
+                <br>
+                <br>
+
 
               </div>
 
@@ -97,38 +61,24 @@
               <div class="row">
 
                 <div class="col-6">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                <br>
-                </div>
                
+                <input type="number" class="form-control" id="price" name="price"  placeholder="Price" required>
+                <br>
+                <br>
+                <br>
+
+              </div>
+
                 <div class="col-6">
-                  <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode" required>
-                  <br>
-                  <br>
-                  <br>
-                </div>
-              </div>
 
-              <!--Personal Address-->
-              <h2>Home Address</h2>
-              <div class="row">
-
-               <div class="col-2">
-                <input type="number" class="form-control" id="houseNumber" name="houseNumber" placeholder="House Number" required>
-               </div>
-
-               <div class="col-3">
-                <input type="text" class="form-control" id="street" name="street" placeholder="Street" required>
-               </div>
-
-               <div class="col-4">
-                <input type="text" class="form-control" id="locality" name="locality" placeholder="Locality" required>
-               </div>
+                <input type="number" class="form-control" id="warranty" name="warranty"  placeholder="Warranty in Years" required>
+                <br>
+                <br>
+                <br>
 
               </div>
-            </div>
 
-            <br>
+
 
         
 
@@ -139,52 +89,13 @@
            <br>
 
          <!--Submit Button-->
-         <input type="submit" value="Register New Account">
+         <input type="submit" value="Add New Product">
             </form>
         </div>
     </main>
 
-    <br>
-    <br>
-    <br>
+    <script src="../Javascript/add_Product(Admin).JS"></script>
 
-   <!--Footer-->
-   <footer>
-
-
-
-   </div>
- 
-   <hr>
- 
-   <div class="container-fluid">
-   <div class="row">
- 
-     <div class="col-6">
-         <p2>        Contact Us: <br>
-             Phone: 1-800-123-4567<br>
-             Email: support@kahunaappliances.com</p2>
-     </div>
- 
-     <div class="col-6">
-         <div class>
-             <p>87,<br> Triq Herbert Damarco,<br> Santa Lucija,<br> Malta</p>
-            </div>
-             
- 
- 
-           
-            
- 
-     </div>
-   </div>
-   </div>
- 
-     <hr>
- 
-    <br>
- 
-   </footer>
     
 </body>
 </html>

@@ -70,5 +70,4 @@ VALUES
 
 
 
-INSERT INTO Customer (customerID, customer_Name, customer_Surname, customer_Email, purchase_Date)
-VALUES (12345, 'Eric', 'Spiteri', 'ericspiteri1410@gmail.com', 11/11/2024);
+

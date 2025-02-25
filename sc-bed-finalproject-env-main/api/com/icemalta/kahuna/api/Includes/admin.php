@@ -43,7 +43,7 @@ public function __construct($db){
     }
     
     //Add a Product (ADMIN ONLY)
-    public function readSingleCustomer(){
+    public function addProduct(){
         $query = "INSERT * INTO {$this->table}
         LIMIT 1;";
     

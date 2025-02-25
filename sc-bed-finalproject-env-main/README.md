@@ -30,5 +30,3 @@ The services started include:
 ## Next Steps
 
 You can now start working on your final project.
-
-1. It is safe to delete the contents of the **client** folder. 

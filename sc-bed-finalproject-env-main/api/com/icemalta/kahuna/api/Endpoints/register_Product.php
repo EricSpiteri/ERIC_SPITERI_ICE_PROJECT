@@ -11,12 +11,12 @@ require_once("../../Includes/customer.php");
 
 $customer = new Customer($db);
 
-$CustomerResult=$customer->read();
+$customerResult=$customer->read();
 $customerNum=$customerResult->rowCount();
 
 if($customerNum > 0){
-    $customer_list = array();
-    $customer_list['data'] = array();
+    $customer_List = array();
+    $customer_List['data'] = array();
 
     while($row = $customerResult->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -30,10 +30,10 @@ if($customerNum > 0){
 
         );
 
-        array_push($Posts_list['data'], $customer_item);
+        array_push($customer_List['data'], $customer_item);
     }
 
-    echo json_encode($customer_list);
+    echo json_encode($customer_List);
 
 } else {
     echo json_encode(array("message" => "No Customers found"));

@@ -1,8 +1,9 @@
 .title{
-    background-color: #62df8e;
+    background-color: #b2b2b2;
     color: white;
     height: 100px;
     display: flex;
+    justify-content: center;
 }
 
 main{
@@ -32,7 +33,7 @@ input[type=submit]{
     width: 70%;
     height: 50px;
     border-radius: 10px;
-    background-color: #62df8e;
+    background-color: #b2b2b2;
     margin-left: 15%;
     margin-bottom: 2%;
     font-weight: bold;
@@ -43,14 +44,3 @@ input[type=submit]{
 }
 
 
-footer{
-    color: white;
-    background-color: #3c3c3c;
-    text-align: center;
-}
-
-hr{
-    width:80%;
-    color: white;
-    margin: left 20%;
-}

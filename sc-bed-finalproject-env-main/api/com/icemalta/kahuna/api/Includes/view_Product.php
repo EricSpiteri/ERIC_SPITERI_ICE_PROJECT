@@ -39,10 +39,10 @@ $this->conn = $db;
 
 }
 
-//Display a single Product
+//Display a single Product that they have registered
 public function readSingleProduct(){
     $query = "SELECT * FROM {$this->table} {$this->alias}
-    WHERE {$this->alias}.serial_Number = ?
+    WHERE {$this->alias}.serial_Number = ? 
     LIMIT 1;";
 
     $stmt = $this->conn->prepare ($query);
