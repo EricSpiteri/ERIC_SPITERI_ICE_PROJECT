@@ -1,24 +1,31 @@
-<?php 
+<?php
+cors(); 
 require_once("../../Core/initialize.php");
 require_once("../../Core/config.php");
 require_once("../../Includes/admin.php");
 
 
 
-function cors() {
-    // Allow from any origin
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+function cors()
+{
+ // Allow from any origin
+ if (isset($_SERVER['HTTP_ORIGIN'])) {
 
-    // Handle preflight requests (OPTIONS method)
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        http_response_code(200);
-        exit();
-    }
+ header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+ header('Access-Control-Allow-Credentials: true');
+ header('Access-Control-Max-Age: 86400');
+ }
+ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+ if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, DELETE");
+ if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+ header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+ exit(0);
+ }
 }
 
-cors();
+
 session_start();
 
 
@@ -60,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     //Admin adds product
 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['logged-in'] ===true ) {
 
 
         if(!isset($_SESSION['logged-in']) || $_SESSION ['logged-in'] !== true){

@@ -5,7 +5,7 @@ class User_Account{
 
 //db stuff
 private $conn;
-private $table = "Product";
+private $table = "Account";
 
 private $alias = "u";
 
@@ -13,9 +13,9 @@ private $alias = "u";
 private static $db;
 
 
-private int $accountID;
-private $name;
-private $surname;
+private int $AccountID;
+private $account_Name;
+private $account_Surname;
 private $nationality;
 private int $house;
 private $street;
@@ -32,6 +32,20 @@ public function __construct($db){
     $this->conn = $db;
     }
     
+        //Read all Account Records
+        public function read(){
+            $query = "SELECT *
+            FROM {$this->table} p
+            ORDER BY p.AccountID ASC;";
+        
+            $stmt = $this->conn->prepare($query);
+        
+            $stmt->execute();
+        
+            return $stmt;
+        
+        
+        }
     
 
     
@@ -41,14 +55,14 @@ public function __construct($db){
         LIMIT 1;";
     
         $stmt = $this->conn->prepare ($query);
-        $stmt->bindParam(1, $this->accountID);
+        $stmt->bindParam(1, $this->AccountID);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row > 0){
             $this->account_Name = $row["account_Name"];
             $this->account_Surname = $row["account_Surname"];
-            $this->accountID = $row["accountID"];
+            $this->AccountID = $row["AccountID"];
             $this->email = $row["email"];
             $this->nationality = $row["nationality"];
             $this->house_Number = $row["house_Number"];
