@@ -76,54 +76,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
 
 
-        $requestData = json_decode(file_get_contents("php://input" ) ,true);
-        $name = isset($requestData['name']) ? $requestData['name'] : '';
-        $serial_Number = isset($requestData['serial_Number']) ? $requestData['serial_Number'] : '';
-        $price = isset($requestData['price']) ? $requestData['price'] : '';
-        $warranty = isset($requestData['warranty']) ? $requestData['warranty'] : '';
+        $data = json_decode(file_get_contents("php://input" ) ,true);
+        $product_Name = isset($data['product_Name']) ? $data['product_Name'] : '';
+        $serial_Number = isset($data['serial_Number']) ? $data['serial_Number'] : '';
+        $price = isset($data['price']) ? $data['price'] : '';
+        $warranty = isset($data['warranty']) ? $data['warranty'] : '';
+        $product_Image_ID = isset($data['product_Image_ID']) ? $data['product_Image_ID'] : '';
 
-       
-        $admin = new Admin($db);
 
-        $adminResult=$admin->read();
-        $adminNum=$adminResult->rowCount();
 
         //Adding Product
-        if($adminNum > 0){
         $admin = new Admin($db);
+        
 
-        $adminResult = $admin->addProduct();
-        $adminNum=$adminResult->rowCount();
+        $admin->serial_Number = $data->serial_Number;
+        $admin->product_Name = $data->product_Name;
+        $admin->warranty = $data->warranty;
+        $admin->price = $data->price;
+        $admin->product_Image_ID = $data->product_Image_ID;
+        
 
-        $admin_List = array();
-        $admin_List['data'] = array();
+       if($admin->add_Product()){
+       echo json_encode(array("message => Product Created."));
+     } else {
+       echo json_encode( array("message => Product not Created."));
 
-        while($row = $adminResult->fetch(PDO::FETCH_ASSOC)){
-            extract($row);
-            $admin_item = array(
-                "serial_Number" => $serial_Number,
-                "product_Name" => $product_Name,
-                "warranty" => $warranty,
-                "price" => $price,
-            );
-
-            array_push($admin_List['data'], $admin_item);
+           }
 
         }
-
-        echo json_encode($admin_List);
-
-    }else{
-        echo json_encode(array("message" => "No Products Registered"));
-    }
-
-
-
-
-
-    //Sending response as JSON
-    function sendResponse($data) {
-        echo json_encode($data);
-    }
-
-}

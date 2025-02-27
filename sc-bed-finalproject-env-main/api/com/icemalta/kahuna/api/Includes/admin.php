@@ -13,11 +13,11 @@ private $alias = "u";
 private static $db;
 
 
-private int $serial_Number;
-private $product_Name;
-private $warranty;
-private $price;
-private int $product_Image_Id;
+public int $serial_Number;
+public $product_Name;
+public $warranty;
+public $price;
+public $product_Image_ID;
 
 //constructor with db connection
 // a function that is triggered automatically when an instance of the class is created
@@ -43,28 +43,32 @@ public function __construct($db){
     }
     
     //Add a Product (ADMIN ONLY)
-    public function addProduct(){
-        $query = "INSERT * INTO {$this->table}
-        LIMIT 1;";
+    public function add_Product(){
+        $query = "INSERT INTO {$this->table}
+        (serial_Number, product_Name, warranty, price, product_Image_ID)
+        VALUES (:serial_Number, :product_Name, :warranty, :price, :product_Image_ID);";
     
-        $stmt = $this->conn->prepare ($query);
-        $stmt->bindParam(1, $this->serial_Number);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->conn->prepare($query);
     
-        if($row > 0){
-            $this->serial_Number = $row["serial_Number"];
-            $this->product_Name = $row["product_Name"];
-            $this->warranty = $row["warranty"];
-            $this->price = $row["price"];
-            $this->product_Image_ID = $row["product_Image_ID"];
-            
-
+        //clean data sent by user for security
+        $this->product_Name = htmlspecialchars(strip_tags($this->product_Name));
+        $this->warranty = htmlspecialchars(strip_tags($this->warranty));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        
+        $stmt->bindParam(":serial_Number", $this->serial_Number);
+        $stmt->bindParam(":product_Name", $this->product_Name);
+        $stmt->bindParam(":warranty", $this->warranty);
+        $stmt->bindParam(":price", $this->price);
+        $stmt->bindParam(":product_Image_ID", $this->product_Image_ID);
     
-            
+        if($stmt->execute()){
+            return true;
         }
-        return $stmt;
-    }
+    
+        printf("Error %s. /n", $stmt->error);
+        return false;
+    
+      }
     }
     
     ?>

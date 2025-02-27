@@ -18,7 +18,7 @@
         </div>
 
         <div class="loginButton">
-          <a href="./HTML/login.html">
+          <a href="./HTML/login.php">
           <img src="../Images/Icons/ProfileIcon.png" alt="LoginButton">
           </a>
           </div>
@@ -27,7 +27,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../index.html">Home</a>
+    <a class="navbar-brand" href="../index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,7 +37,7 @@
           <a class="nav-link active" aria-current="page" href="HTML/Products.php">Purchase Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="HTML/Registrations.html">Your Registrations</a>
+          <a class="nav-link" href="HTML/Registrations.php">Your Registrations</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -46,9 +46,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"></a></li>
-            <li><a class="dropdown-item" href="./Contact.html">Contact Us</a></li>
+            <li><a class="dropdown-item" href="./Contact.php">Contact Us</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./FAQ.html">Frequently Asked Questions</a></li>
+            <li><a class="dropdown-item" href="./FAQ.php">Frequently Asked Questions</a></li>
           </ul>
         </li>
       </ul>

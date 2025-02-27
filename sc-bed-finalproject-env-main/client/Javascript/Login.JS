@@ -24,7 +24,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     .then(data => {
         if (data.message === 'Administrator Logged-In') {
             // Redirect to the admin page
-            window.location.href = '../HTML/add_Product(Admin).html';
+            window.location.href = '../HTML/add_Product(Admin).php';
         } else {
             // Show error message
             document.getElementById('error-message').textContent = data.message;

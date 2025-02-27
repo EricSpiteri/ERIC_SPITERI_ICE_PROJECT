@@ -40,7 +40,7 @@ document.getElementById('register_Account').addEventListener('submit', function(
     .then(data => {
         if (data.message === 'User Account Created Successfully') {
             // Redirect to the Home Page
-            window.location.href = '../HTML/index.html';
+            window.location.href = '../HTML/index.php';
         } else {
             // Show error message
             document.getElementById('error-message').textContent = data.message;

@@ -31,17 +31,17 @@
  <!-- Navigation Bar -->
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/index.html">Home</a>
+    <a class="navbar-brand" href="/index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Products.html">Purchase Products</a>
+          <a class="nav-link active" aria-current="page" href="Products.php">Purchase Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Registrations.html">Your Registrations</a>
+          <a class="nav-link" href="Registrations.php">Your Registrations</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -50,9 +50,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"></a></li>
-            <li><a class="dropdown-item" href="./Contact.html">Contact Us</a></li>
+            <li><a class="dropdown-item" href="./Contact.php">Contact Us</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./FAQ.html">Frequently Asked Questions</a></li>
+            <li><a class="dropdown-item" href="./FAQ.php">Frequently Asked Questions</a></li>
           </ul>
         </li>
       </ul>
