@@ -29,7 +29,7 @@ document.getElementById('register_Account').addEventListener('submit', function(
     };
 
     // Send POST request to the backend
-    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_Account.php', {
+    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_Account.html', {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'

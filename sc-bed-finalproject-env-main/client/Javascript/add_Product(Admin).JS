@@ -28,7 +28,7 @@ document.getElementById('add_Product').addEventListener('submit', function(event
     .then(data => {
         if (data.message === 'Administrator Registered Product') {
             // Redirect back
-            window.location.href = '../HTML/add_Product(Admin).php';
+            window.location.href = '../HTML/add_Product(Admin).html';
         } else {
             // Show error message
             document.getElementById('error-message').textContent = data.message;
