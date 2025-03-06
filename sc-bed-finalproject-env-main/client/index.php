@@ -21,7 +21,7 @@
         </div>
 
         <div class="loginButton">
-        <a href="./HTML/login.html">
+        <a href="./HTML/login.php">
         <img src="./Images/Icons/ProfileIcon.png" alt="LoginButton">
         </a>
         </div>
@@ -32,17 +32,17 @@
     <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../index.php">Home</a>
+    <a class="navbar-brand" href="../index.html">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./HTML/register_Product.html">Register Your Appliance</a>
+          <a class="nav-link active" aria-current="page" href="./HTML/register_Product.php">Register Your Appliance</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="view_Products.html">Your Registrations</a>
+          <a class="nav-link" href="view_Products.php">Your Registrations</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -51,9 +51,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"></a></li>
-            <li><a class="dropdown-item" href="./HTML/view_Products.html">View Your Products</a></li>
+            <li><a class="dropdown-item" href="./HTML/view_Products.php">View Your Products</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./HTML/contact.html">Contact Us</a></li>
+            <li><a class="dropdown-item" href="./HTML/contact.php">Contact Us</a></li>
           </ul>
         </li>
       </ul>
