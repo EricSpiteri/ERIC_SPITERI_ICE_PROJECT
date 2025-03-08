@@ -1,5 +1,5 @@
 <?php 
-
+cors();
 
 
 require_once("../../Core/initialize.php");
@@ -28,8 +28,7 @@ function cors()
  }
 }
 
-cors();
-header("Content-Type: application/json");
+
 session_start();
 
 
@@ -63,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Creating a new account
     $user_Account_Result = $user_Account->createAccount();
     $user_Account_Num=$user_Account_Result->rowCount();
+
+
 
     if($user_Account_Num > 0){
 

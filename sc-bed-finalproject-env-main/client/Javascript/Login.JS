@@ -9,11 +9,11 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
     const data = {
         email: email,
-        password: password
+        password: String(password)
     };
 
     // Send POST request to the backend
-    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/admin.php', {
+    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/login.php', {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'
@@ -27,11 +27,12 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             window.location.href = '../HTML/add_Product(Admin).html';
         } else {
             // Show error message
-            document.getElementById('error-message').textContent = data.message;
-            document.getElementById('error-message').style.display = 'block';
+            console.log(data);
+            document.getElementById('error').innerText = data.message;
+            document.getElementById('error').style.display = 'block';
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Admin Log-in Attempt Failed:', error);
     });
 });

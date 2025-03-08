@@ -8,12 +8,14 @@ document.getElementById('add_Product').addEventListener('submit', function(event
     const product_Name = document.getElementById('product_Name').value;
     const price = document.getElementById('price').value;
     const warranty = document.getElementById('warranty').value;
+    const product_Image_ID = document.getElementById('product_Image_ID').value;
 
     const data = {
         serial_Number: serial_Number,
         product_Name: product_Name,
         price : price,
         warranty : warranty,
+        product_Image_ID : product_Image_ID,
     };
 
     // Send POST request to the backend

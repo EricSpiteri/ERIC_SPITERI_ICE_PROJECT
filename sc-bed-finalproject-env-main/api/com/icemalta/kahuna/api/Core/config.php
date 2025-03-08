@@ -1,14 +1,14 @@
 <?php
 
 //Database details
-$db_Name = 'Kahuna';
+$db_Name = "Kahuna";
 $db_User = "root";
-$db_Password = "";
+$db_Password = "root";
 
 //PDO = PHP Data Objects
 //Used for Object Oriented Programming
 //Creating an 'Object' makes our code much more organised
-$db = new PDO("mysql:host=127.0.0.1;dbname=".$db_Name.";charset=utf8;",
+$db = new PDO("mysql:host=mariadb;dbname=".$db_Name.";charset=utf8;",
 $db_User,
 $db_Password);
 
@@ -21,9 +21,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //load config file first for db connection
 require_once(CORE_PATH.DS."config.php");
 
-require_once(INC_PATH.DS."Account.php");
-require_once(INC_PATH.DS."Post.php");
-
-echo(INC_PATH.DS."user.php");
+require_once(INC_PATH.DS."create_Account.php");
+require_once(INC_PATH.DS."admin.php");
+require_once(INC_PATH.DS."register_Product.php");
+require_once(INC_PATH.DS."user_Login.php");
+require_once(INC_PATH.DS."view_Product.php");
 
 ?>

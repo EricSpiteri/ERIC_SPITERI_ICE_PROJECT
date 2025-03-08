@@ -2,7 +2,7 @@ services:
   api:
     image: nginx:alpine
     ports:
-      - "3000:80"
+      - "8000:80"
     volumes:
       - ./api:/var/www/html
       - ./docker/conf/api.conf:/etc/nginx/conf.d/api.conf
@@ -42,7 +42,7 @@ services:
       - db_data:/var/lib/mysql
   print-status:
     image: busybox
-    command: "echo '---\nAPI: http://localhost:3000. CLIENT: http://localhost:8001. USE CTRL+C TO TERMINATE.\n---'"
+    command: "echo '---\nAPI: http://localhost:8000. CLIENT: http://localhost:8001. USE CTRL+C TO TERMINATE.\n---'"
     depends_on:
       api:
         condition: service_started
