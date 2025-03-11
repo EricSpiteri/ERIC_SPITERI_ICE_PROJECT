@@ -20,11 +20,4 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //load config file first for db connection
 require_once(CORE_PATH.DS."config.php");
-
-require_once(INC_PATH.DS."create_Account.php");
-require_once(INC_PATH.DS."admin.php");
-require_once(INC_PATH.DS."register_Product.php");
-require_once(INC_PATH.DS."user_Login.php");
-require_once(INC_PATH.DS."view_Product.php");
-
 ?>

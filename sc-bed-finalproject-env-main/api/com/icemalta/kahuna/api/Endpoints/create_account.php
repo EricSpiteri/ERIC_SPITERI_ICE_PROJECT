@@ -2,9 +2,9 @@
 cors();
 
 
-require_once("../../Core/initialize.php");
-require_once("../../Core/config.php");
-require_once("../../Includes/create_Account.php");
+require_once("../Core/initialize.php");
+require_once("../Core/config.php");
+require_once("../Includes/create_Account.php");
 
 //Create Account
 
@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $requestData = json_decode(file_get_contents("php://input" ) ,true);
+    
 
     $account_Name = isset($requestData['account_Name']) ? $requestData['account_Name'] : '';
 
@@ -55,13 +56,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $mobile_Number = isset($requestData['mobile_Number']) ? $requestData['mobile_Number'] : '';
 
+    $country = isset($requestData['country']) ? $requestData['country'] : '';
+
+
     $user_Account = new User_Account($db);
 
 
 
     //Creating a new account
-    $user_Account_Result = $user_Account->createAccount();
     $user_Account_Num=$user_Account_Result->rowCount();
+    $user_Account_Result = $user_Account->createAccount();
+    
 
 
 
@@ -84,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "house_Number" => $house_Number,
             "street" => $street,
             "locality" => $locality,
+            "country" => $country,
         );
 
         array_push($user_Account_List['data'], $user_Account_item);
@@ -106,8 +112,3 @@ function sendResponse($data) {
 }
 
 }
-
-
-
-
-?>

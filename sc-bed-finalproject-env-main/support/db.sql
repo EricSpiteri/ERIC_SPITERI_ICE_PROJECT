@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS kahuna;
+CREATE DATABASE IF NOT EXISTS Kahuna;
 
-USE kahuna;
+USE Kahuna;
 
