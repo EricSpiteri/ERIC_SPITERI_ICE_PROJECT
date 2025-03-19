@@ -1,4 +1,8 @@
 <?php
+
+header("Content-Type: application/json");
+
+
 cors(); 
 include_once("../Core/initialize.php");
 include_once("../Core/config.php");
@@ -43,15 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $correctEmail = 'Gforce2009@gmail.com';
         $correctPassword = 'S@BERLING';
-        
-        echo($password);
         //validating login credentials
 
         if($email === $correctEmail && $password === $correctPassword){
             $_SESSION ['logged-in'] = true;
             
             
-            sendResponse(['message' => 'Administrator Logged-In']);
+            sendResponse(['message' => "Administrator Logged-In"]);
             
 
         }
