@@ -47,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $correctEmail = 'Gforce2009@gmail.com';
         $correctPassword = 'S@BERLING';
+
+        
         //validating login credentials
 
         if($email === $correctEmail && $password === $correctPassword){

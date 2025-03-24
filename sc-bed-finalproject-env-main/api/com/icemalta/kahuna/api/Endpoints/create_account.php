@@ -67,53 +67,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_Account = new User_Account($db);
 
 
+    //Create an account
 
-    //Creating a new account
-    $user_Account_Num=$user_Account_Result->rowCount();
-    $user_Account_Result = $user_Account->createAccount();
+    // fill user properties with decoded values
+    $user_Account->account_Name = $requestData->account_Name;
+    $user_Account->account_Surname = $requestData->account_Surname;
+    $user_Account->country_Code = $requestData->country_Code;
+    $user_Account->account_Email = $requestData->account_Email;
+    $user_Account->password = $requestData->password;
+    $user_Account->postcode = $requestData->postcode;
+    $user_Account->house_Number = $requestData->house_Number;
+    $user_Account->street = $requestData->street;
+    $user_Account->mobile_Number = $requestData->mobile_Number;
+    $user_Account->country = $requestData->country;
     
 
 
-
-    if($user_Account_Num > 0){
-
-    $user_Account_List = array();
-    $user_Account_List['data'] = array();
-
-    while($row = $user_Account_Result->fetch(PDO::FETCH_ASSOC)){
-        extract($row);
-        $user_Account_item = array(
-            "AccountID" => $AccountID,
-            "account_Name" => $account_Name,
-            "account_Surname" => $account_Surname,
-            "country_Code" => $country_Code,
-            "mobile_Number" => $mobile_Number,
-            "account_Email" => $account_Email,
-            "password" => $password,
-            "postcode" => $postcode,
-            "house_Number" => $house_Number,
-            "street" => $street,
-            "locality" => $locality,
-            "country" => $country,
-        );
-
-        array_push($user_Account_List['data'], $user_Account_item);
-
-    }
-
-    echo json_encode($user_Account_List);
-
-}else{
-    echo json_encode(array("message" => "No Users Registered"));
+if($user_Account->createAccount()){
+    echo json_encode(array("message" => "User created."));
 }
-
-
-
-
-
-//Sending response as JSON
-function sendResponse($data) {
-    echo json_encode($data);
+else{
+    echo json_encode(array("message" => "User not created."));
 }
-
 }

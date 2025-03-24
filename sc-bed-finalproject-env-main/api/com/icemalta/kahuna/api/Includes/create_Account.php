@@ -8,21 +8,21 @@ private $table = "Account";
 private $alias = "u";
 
 //Adding Properties
-private static $db;
+public $db;
 
 
-private $accountID;
-private $account_Name;
-private $account_Surname;
-private $country;
-private $house_Number;
-private $street;
-private $locality;
-private $country_Code;
-private $mobile_Number;
-private $account_Email;
-private $password;
-private $postcode;
+public $accountID;
+public $account_Name;
+public $account_Surname;
+public $country;
+public $house_Number;
+public $street;
+public $locality;
+public int $country_Code;
+public $mobile_Number;
+public $account_Email;
+public $password;
+public $postcode;
 
 //constructor with db connection
 // a function that is triggered automatically when an instance of the class is created
@@ -70,8 +70,8 @@ public function __construct($db){
 
 public function createAccount(){
     $query = "INSERT INTO {$this->table}
-    (account_Name, account_Surname, password, accountID, country_Code, mobile_Number, account_Email, postcode, house_Number, street, locality, country)
-    VALUES (:account_Name, :account_Surname, :password, :accountID, :country_code, :mobile_Number, :account_Email, :postcode, :house_Number, :street, :locality, :country);";
+    (account_Name, account_Surname, password, country_Code, mobile_Number, account_Email, postcode, house_Number, street, locality, country)
+    VALUES (:account_Name, :account_Surname, :password, :country_code, :mobile_Number, :account_Email, :postcode, :house_Number, :street, :locality, :country);";
 
     $stmt = $this->conn->prepare($query);
 
@@ -82,28 +82,26 @@ public function createAccount(){
     //Hashing password for security
     $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-    $this->accountID = htmlspecialchars(strip_tags($this->accountID));
-    $this->country_Code = htmlspecialchars(strip_tags($this->country_Code));
-    $this->mobile_Number = htmlspecialchars(strip_tags($this->mobile_Number));
     $this->account_Email = htmlspecialchars(strip_tags($this->account_Email));
     $this->postcode = htmlspecialchars(strip_tags($this->postcode));
-    $this->house_Number = htmlspecialchars(strip_tags($this->house_Number));
     $this->street = htmlspecialchars(strip_tags($this->street));
     $this->locality = htmlspecialchars(strip_tags($this->locality));
     $this->country = htmlspecialchars(strip_tags($this->country));
+    $this->house_Number = htmlspecialchars(strip_tags($this->house_Number));
+    $this->mobile_Number = htmlspecialchars(strip_tags($this->mobile_Number));
 
+    //Binding parameters
     $stmt->bindParam(":account_Name", $this->account_Name);
     $stmt->bindParam(":account_Surname", $this->account_Surname);
     $stmt->bindParam(":password", $this->password);
-    $stmt->bindParam(":accountID", $this->accountID);
-    $stmt->bindParam(":country_Code", $this->country_Code);
-    $stmt->bindParam(":mobile_Number", $this->mobile_Number);
     $stmt->bindParam(":account_Email", $this->account_Email);
-    $stmt->bindParam(":postcode", $this->postcode);
-    $stmt->bindParam(":house_Number", $this->house_Number);
     $stmt->bindParam(":street", $this->street);
     $stmt->bindParam(":locality", $this->locality);
     $stmt->bindParam(":country", $this->country);
+    $stmt->bindParam(":postcode", $this->postcode);
+    $stmt->bindParam(":country_Code", $this->country_Code); 
+    $stmt->bindParam(":mobile_Number", $this->mobile_Number); 
+    $stmt->bindParam(":house_Number", $this->house_Number); 
 
     if($stmt->execute()){
         return true;

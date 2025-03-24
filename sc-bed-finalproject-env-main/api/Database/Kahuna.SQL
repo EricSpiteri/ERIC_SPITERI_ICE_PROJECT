@@ -1,72 +1,69 @@
-
 CREATE DATABASE Kahuna;
 
 USE Kahuna;
 
+
+
+
+CREATE TABLE Account
+(
+  AccountID       INT (11)     NULL     AUTO_INCREMENT,
+  account_Name    VARCHAR (255) NOT NULL,
+  account_Surname VARCHAR (255) NOT NULL,
+  account_Email   VARCHAR (255) NOT NULL,
+  password        VARCHAR (255) NOT NULL,
+  country         VARCHAR (255) NOT NULL,
+  house_number    VARCHAR (255) NOT NULL,
+  street          VARCHAR (255) NOT NULL,
+  locality        VARCHAR (255) NOT NULL,
+  country_Code    INT     (11) NOT NULL,
+  postcode        VARCHAR (255) NOT NULL,
+  mobile_number   INT (11)    NOT NULL,
+  PRIMARY KEY (AccountID)
+) COMMENT 'Each account registered into the system';
+
 CREATE TABLE Admin_Account
 (
-  admin_Account_ID      INT (11)  NOT NULL AUTO_INCREMENT ,
+  admin_Account_ID      INT (11)     NULL     AUTO_INCREMENT,
   admin_Account_Name    VARCHAR (255) NOT NULL,
   admin_Account_Surname VARCHAR (255) NOT NULL,
   admin_Account_Email   VARCHAR (255) NOT NULL,
   PRIMARY KEY (admin_Account_ID)
 ) COMMENT 'An Account exclusively for Administrators';
-CREATE TABLE Product
-(
-  serial_Number    VARCHAR (255) NOT NULL ,
-  product_Name     VARCHAR (255) NOT NULL,
-  warranty         INT  (11)   NOT NULL,
-  price            INT (11)    NOT NULL,
-  product_Image_ID VARCHAR (255) NOT NULL,
-  admin_Account_ID INT  (11)   NOT NULL,
-  PRIMARY KEY (serial_Number)
-) COMMENT 'Each Individual Appliance and all of its attributes';
+
 CREATE TABLE Customer
 (
-  customerID       INT (11) NOT NULL AUTO_INCREMENT ,
-  customer_Name    VARCHAR (255) NOT NULL,
-  customer_Surname VARCHAR (255) NOT NULL,
-  customer_Email   VARCHAR (255) NOT NULL,
-  purchase_Date    DATE    NOT NULL,
-  serial_Number    VARCHAR (255) NOT NULL,
+  customerID    INT (11)     NULL     AUTO_INCREMENT,
+  AccountID     INT (11)    NULL,
+  serial_Number VARCHAR (255) NOT NULL,
   PRIMARY KEY (customerID)
 ) COMMENT 'The individual person the service is provided to';
-CREATE TABLE Account
+
+CREATE TABLE Product
 (
-  AccountID       INT (11) NOT NULL AUTO_INCREMENT,
-  account_Name    VARCHAR (255) NOT NULL,
-  account_Surname VARCHAR (255) NOT NULL,
-  account_Email   VARCHAR (255) NOT NULL,
-  nationality    VARCHAR (255) NOT NULL,
-  house_number    INT  (11)   NOT NULL,
-  street          VARCHAR (255) NOT NULL,
-  locality        VARCHAR (255) NOT NULL,
-  country         VARCHAR (255) NOT NULL,
-  mobile_number   INT  (11)   NOT NULL,
-  customerID      INT   (11)  NOT NULL,
-  PRIMARY KEY (AccountID)
-) COMMENT 'Each account registered into the system';
-
-
-
-
-
-
-
-ALTER TABLE Account
-  ADD CONSTRAINT FK_Customer_TO_Account
-    FOREIGN KEY (customerID)
-    REFERENCES Customer (customerID);
-
-ALTER TABLE Customer
-  ADD CONSTRAINT FK_Product_TO_Customer
-    FOREIGN KEY (serial_Number)
-    REFERENCES Product (serial_Number);
+  serial_Number    VARCHAR (255) NOT NULL,
+  product_Name     VARCHAR (255) NOT NULL,
+  warranty         INT (11)     NOT NULL,
+  price            INT (11)    NOT NULL,
+  product_Image_ID VARCHAR (255) NOT NULL,
+  admin_Account_ID INT (11)     NULL,
+  PRIMARY KEY (serial_Number)
+) COMMENT 'Each Individual Appliance and all of its attributes';
 
 ALTER TABLE Product
   ADD CONSTRAINT FK_Admin_Account_TO_Product
     FOREIGN KEY (admin_Account_ID)
     REFERENCES Admin_Account (admin_Account_ID);
+
+ALTER TABLE Customer
+  ADD CONSTRAINT FK_Account_TO_Customer
+    FOREIGN KEY (AccountID)
+    REFERENCES Account (AccountID);
+
+ALTER TABLE Customer
+  ADD CONSTRAINT FK_Product_TO_Customer
+    FOREIGN KEY (serial_Number)
+    REFERENCES Product (serial_Number);
 
 
 
@@ -75,20 +72,28 @@ ALTER TABLE Product
 INSERT INTO Admin_Account (admin_Account_ID, admin_Account_Name, admin_Account_Surname, admin_Account_Email )
 VALUES('90865', 'Eric', 'Spiteri', 'ericspiteri1410@gmail.com');
 
+/*Inserting New User Account*/
+INSERT INTO Account (account_Name, account_Surname, account_Email, password, country, house_number, street, postcode, locality, country_Code, mobile_number)
+VALUES 
+('John', 'Doe', 'john.doe@example.com', 'ABC123', 'Maltese', 12, 'Main Street', 'TRM 1404', 'Valletta', '356', '12345678');
+
 /*Inserting Product DATA*/
-INSERT INTO Product (serial_Number, product_Name, warranty, price, product_Image_ID, admin_Account_ID)
-VALUES ('KHWM8199911', 'CombiSpin Washing Machine', 2 , 600, 'WashingMachine.jpg', 90865);
+INSERT INTO Product (serial_Number, product_Name, warranty, price, product_Image_ID)
+VALUES ('KHWM8199911', 'CombiSpin Washing Machine', 2 , 600, 'WashingMachine.jpg');
 
 /*Inserting New Customer Account*/
-INSERT INTO Customer (customerID, customer_Name, customer_Surname, customer_Email, purchase_Date, serial_Number)
+INSERT INTO Customer (serial_Number)
 VALUES 
-('20031014', 'John', 'Doe', 'john.doe@example.com', '2024-01-15', 'KHWM8199911');
+('KHWM8199911');
 
 
-/*Inserting New User Account*/
-INSERT INTO Account (account_Name, account_Surname, account_Email, nationality, house_number, street, locality, country, mobile_number, customerID)
-VALUES 
-('John', 'Doe', 'john.doe@example.com', 'Maltese', 12, 'Main Street', 'Valletta', 'Malta', '12345678', 20031014);
+
+
+
+
+
+
+
 
 
 
