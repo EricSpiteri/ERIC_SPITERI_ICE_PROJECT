@@ -19,7 +19,7 @@ document.getElementById('add_Product').addEventListener('submit', function(event
     };
 
     // Send POST request to the backend
-    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/admin.php', {
+    fetch('http://localhost:8000/com/icemalta/kahuna/api/Endpoints/register_Product.php', {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'

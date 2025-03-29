@@ -1,42 +1,73 @@
 <?php 
+//Register new product (ADMIN ONLY)
+cors();
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-require_once("../../Core/initialize.php");
-require_once("../../Core/config.php");
-require_once("../../Includes/customer.php");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With");
 
 
-//Display Customer
 
-$customer = new Customer($db);
 
-$customerResult=$customer->read();
-$customerNum=$customerResult->rowCount();
 
-if($customerNum > 0){
-    $customer_List = array();
-    $customer_List['data'] = array();
+function cors()
+{
+ // Allow from any origin
+ if (isset($_SERVER['HTTP_ORIGIN'])) {
 
-    while($row = $customerResult->fetch(PDO::FETCH_ASSOC)){
-        extract($row);
-        $customer_item = array(
-            "customerID"  => $customerID,
-            "customer_Name" => $customer_Name,
-            "customer_Surname" => $customer_Surname,
-            "email" => $email,
-            "mobile_Number" => $mobilenumber,
-            "purchase_Date" => $purchase_Date,
+ header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+ header('Access-Control-Allow-Credentials: true');
+ header('Access-Control-Max-Age: 86400');
+ }
+ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+ if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
 
-        );
+ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, DELETE");
+ if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+ header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+ exit(0);
+ }
+}
 
-        array_push($customer_List['data'], $customer_item);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+
+    $requestData = json_decode(file_get_contents("php://input" ) ,true);
+
+    $serial_Number = isset($requestData['serial_Number']) ? $requestData['serial_Number'] : '';
+
+    $product_Name = isset($requestData['product_Name']) ? $requestData['product_Name'] : '';
+
+    $price = isset($requestData['price']) ? $requestData['price'] : '';
+
+    $warranty = isset($requestData['warranty']) ? $requestData['warranty'] : '';
+
+    $product_Image_ID = isset($requestData['product_Image_ID']) ? $requestData['product_Image_ID'] : '';
+
     }
 
-    echo json_encode($customer_List);
 
-} else {
-    echo json_encode(array("message" => "No Customers found"));
+session_start();
+
+//Create a New Product
+
+$product = new Product($db);
+
+    $Product->serial_Number = $requestData->serial_Number;
+    $Product->product_Name = $requestData->product_Name;
+    $Product->price = intval($requestData->price);
+    $Product->warranty = intval($requestData->warranty);
+    $Product->product_Image_ID =($requestData->product_Image_ID);
+
+
+if($user_Account->createAccount()){
+    echo json_encode(array("message" => "Product Successfully Created."));
+}
+else{
+    echo json_encode(array("message" => "Product Creation Failed."));
 }
 
 ?>

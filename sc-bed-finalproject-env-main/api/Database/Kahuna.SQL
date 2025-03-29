@@ -13,12 +13,12 @@ CREATE TABLE Account
   account_Email   VARCHAR (255) NOT NULL,
   password        VARCHAR (255) NOT NULL,
   country         VARCHAR (255) NOT NULL,
-  house_number    VARCHAR (255) NOT NULL,
+  house_Number    VARCHAR (255) NOT NULL,
   street          VARCHAR (255) NOT NULL,
   locality        VARCHAR (255) NOT NULL,
   country_Code    INT     (11) NOT NULL,
   postcode        VARCHAR (255) NOT NULL,
-  mobile_number   INT (11)    NOT NULL,
+  mobile_Number   INT (11)    NOT NULL,
   PRIMARY KEY (AccountID)
 ) COMMENT 'Each account registered into the system';
 
@@ -73,7 +73,7 @@ INSERT INTO Admin_Account (admin_Account_ID, admin_Account_Name, admin_Account_S
 VALUES('90865', 'Eric', 'Spiteri', 'ericspiteri1410@gmail.com');
 
 /*Inserting New User Account*/
-INSERT INTO Account (account_Name, account_Surname, account_Email, password, country, house_number, street, postcode, locality, country_Code, mobile_number)
+INSERT INTO Account (account_Name, account_Surname, account_Email, password, country, house_Number, street, postcode, locality, country_Code, mobile_Number)
 VALUES 
 ('John', 'Doe', 'john.doe@example.com', 'ABC123', 'Maltese', 12, 'Main Street', 'TRM 1404', 'Valletta', '356', '12345678');
 

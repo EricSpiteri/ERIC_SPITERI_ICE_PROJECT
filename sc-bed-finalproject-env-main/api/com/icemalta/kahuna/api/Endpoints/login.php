@@ -7,6 +7,7 @@ cors();
 include_once("../Core/initialize.php");
 include_once("../Core/config.php");
 include_once("../Includes/admin.php");
+include_once("../Includes/create_Account.php");
 
 
 
@@ -37,25 +38,47 @@ function cors()
 session_start();
 
 
-$requestData = json_decode(file_get_contents("php://input"), true);
-
 //Admin login
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $requestData = json_decode(file_get_contents("php://input" ) ,true);
         $email = isset($requestData['email']) ? $requestData['email'] : '';
         $password = isset($requestData['password']) ? $requestData['password'] : '';
+        
+        $user_Account = new User_Account($db);
+        $result = $user_Account->read_Account();
+        $num = $result->rowCount();
 
-        $correctEmail = 'Gforce2009@gmail.com';
-        $correctPassword = 'S@BERLING';
+if($num > 0){
+    $account_list = array();
+    $account_list['data'] = array();
+
+    while($row = $result->fetch(PDO::FETCH_ASSOC)){
+        extract($row);
+        $account_item = array(
+            "account_Email" => $account_Email,
+            "password"  => $password,
+        );
+
+        array_push($account_list['data'], $account_item);
+    }
+    echo json_encode($account_list);
+}
+else{
+    echo json_encode(array("message" => "No Accounts found"));
+}
+
+       $emailCredential = $account_item['account_Email'];
+       $passwordCredential = $account_item['password'];
+
 
         
         //validating login credentials
 
-        if($email === $correctEmail && $password === $correctPassword){
+        if($email === $emailCredential && $password === $passwordCredential){
             $_SESSION ['logged-in'] = true;
             
             
-            sendResponse(['message' => "Administrator Logged-In"]);
+            sendResponse(['message' => "User Logged-In"]);
             
 
         }

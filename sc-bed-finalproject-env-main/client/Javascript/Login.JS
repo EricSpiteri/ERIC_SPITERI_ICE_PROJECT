@@ -22,9 +22,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message === 'Administrator Logged-In') {
+        if (data.message === "User Logged-In") {
             // Redirect to the admin page
-            window.location.href = '../HTML/add_Product(Admin).html';
+            window.location.href = '../../index.html';
         } else {
             // Show error message
             console.log(data);
