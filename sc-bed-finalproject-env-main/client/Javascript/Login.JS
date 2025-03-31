@@ -22,9 +22,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message === "User Logged-In") {
-            // Redirect to the admin page
-            window.location.href = '../../index.html';
+        if (data.message === 'User Logged-In') {
+            // Redirect to the Home Page
+            window.location.href = '../index.html';
         } else {
             // Show error message
             console.log(data);
@@ -33,6 +33,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         }
     })
     .catch(error => {
-        console.error('Admin Log-in Attempt Failed:', error);
+        console.error('Login Attempt Failed', error);
     });
 });

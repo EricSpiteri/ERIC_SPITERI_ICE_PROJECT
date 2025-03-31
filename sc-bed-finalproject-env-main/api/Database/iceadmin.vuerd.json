@@ -4,7 +4,7 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -289,
+    "scrollTop": -189,
     "scrollLeft": -104,
     "zoomLevel": 1,
     "show": 447,
@@ -183,25 +183,27 @@
           "vAuOzjPlnfW_2Lkgw-dlr",
           "5JGozTCgy6S2WP-o3j4qf",
           "3o8ySxEDii0IGkogT8HUg",
-          "9wQyifwMlqTo03AcLxyAg"
+          "9wQyifwMlqTo03AcLxyAg",
+          "jolL4K5jbaTZqiv11xftZ"
         ],
         "seqColumnIds": [
           "vAuOzjPlnfW_2Lkgw-dlr",
           "5JGozTCgy6S2WP-o3j4qf",
           "3o8ySxEDii0IGkogT8HUg",
           "9wQyifwMlqTo03AcLxyAg",
-          "PWyjmuzYaixYlaZwNAyAC"
+          "PWyjmuzYaixYlaZwNAyAC",
+          "jolL4K5jbaTZqiv11xftZ"
         ],
         "ui": {
-          "x": 139.5253,
-          "y": 406,
+          "x": 140.5253,
+          "y": 405,
           "zIndex": 26,
           "widthName": 85,
           "widthComment": 221,
           "color": ""
         },
         "meta": {
-          "updateAt": 1742661718006,
+          "updateAt": 1743420892651,
           "createAt": 1740598729104
         }
       }
@@ -1206,6 +1208,26 @@
           "updateAt": 1742661847883,
           "createAt": 1742661847883
         }
+      },
+      "jolL4K5jbaTZqiv11xftZ": {
+        "id": "jolL4K5jbaTZqiv11xftZ",
+        "tableId": "F7yT20fC5Nm03k65MHETL",
+        "name": "admin_Account_Password",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 138,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1743420911143,
+          "createAt": 1743420892621
+        }
       }
     },
     "relationshipEntities": {
@@ -1219,8 +1241,8 @@
           "columnIds": [
             "vAuOzjPlnfW_2Lkgw-dlr"
           ],
-          "x": 371.5253,
-          "y": 406,
+          "x": 373.5253,
+          "y": 405,
           "direction": 4
         },
         "end": {
@@ -1897,6 +1919,16 @@
       1742661847868,
       -1,
       {}
+    ],
+    "jolL4K5jbaTZqiv11xftZ": [
+      "tableColumnEntities",
+      1743420892620,
+      -1,
+      {
+        "name": 1743420900907,
+        "dataType": 1743420911143,
+        "options(notNull)": 1743420904898
+      }
     ]
   }
 }

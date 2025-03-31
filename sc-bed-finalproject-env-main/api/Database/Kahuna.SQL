@@ -28,6 +28,7 @@ CREATE TABLE Admin_Account
   admin_Account_Name    VARCHAR (255) NOT NULL,
   admin_Account_Surname VARCHAR (255) NOT NULL,
   admin_Account_Email   VARCHAR (255) NOT NULL,
+  admin_Account_Password VARCHAR (255) NOT NULL,
   PRIMARY KEY (admin_Account_ID)
 ) COMMENT 'An Account exclusively for Administrators';
 
@@ -69,8 +70,8 @@ ALTER TABLE Customer
 
 
 /*Inserting New Administrator Account*/
-INSERT INTO Admin_Account (admin_Account_ID, admin_Account_Name, admin_Account_Surname, admin_Account_Email )
-VALUES('90865', 'Eric', 'Spiteri', 'ericspiteri1410@gmail.com');
+INSERT INTO Admin_Account (admin_Account_ID, admin_Account_Name, admin_Account_Surname, admin_Account_Email, admin_Account_Password )
+VALUES('90865', 'Eric', 'Spiteri', 'ericspiteri1410@gmail.com', 'libra1404');
 
 /*Inserting New User Account*/
 INSERT INTO Account (account_Name, account_Surname, account_Email, password, country, house_Number, street, postcode, locality, country_Code, mobile_Number)

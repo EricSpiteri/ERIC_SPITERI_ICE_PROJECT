@@ -38,7 +38,7 @@ function cors()
 session_start();
 
 
-//Admin login
+//User Login
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $requestData = json_decode(file_get_contents("php://input" ) ,true);
         $email = isset($requestData['email']) ? $requestData['email'] : '';
@@ -61,7 +61,6 @@ if($num > 0){
 
         array_push($account_list['data'], $account_item);
     }
-    echo json_encode($account_list);
 }
 else{
     echo json_encode(array("message" => "No Accounts found"));
@@ -70,11 +69,15 @@ else{
        $emailCredential = $account_item['account_Email'];
        $passwordCredential = $account_item['password'];
 
+       $admin_Email_Credential = $admin_Account_item['admin_Account_Email'];
+       $admin_Password_Credential = $admin_Account_item['admin_Account_Password'];
+
+
 
         
         //validating login credentials
 
-        if($email === $emailCredential && $password === $passwordCredential){
+        if($email === $emailCredential && $password  === $passwordCredential || $email ===){
             $_SESSION ['logged-in'] = true;
             
             
