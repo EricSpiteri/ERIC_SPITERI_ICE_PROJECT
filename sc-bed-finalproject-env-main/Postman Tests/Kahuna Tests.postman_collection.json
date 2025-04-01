@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "d9a71c71-0a3b-4a73-9f4e-d917ef573a8f",
+		"name": "Kahuna Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41844352"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"admin_Account_Name\" : \"Mario\",\r\n    \"admin_Account_Surname\" : \"Borg\",\r\n    \"admin_Account_Email\" : \"marioborg@gmail.com\",\r\n    \"admin_Account_Password\" : \"UIDESIGN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_admin_Account.php?1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"com",
+						"icemalta",
+						"kahuna",
+						"api",
+						"Endpoints",
+						"create_admin_Account.php"
+					],
+					"query": [
+						{
+							"key": "1",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account_Name\" : \"Keith\",\r\n    \"account_Surname\" : \"Demicoli\",\r\n    \"account_Email\" : \"keithdemicoli@gmail.com\",\r\n    \"password\" : \"TVM\",\r\n    \"country\": \"Malta\",\r\n    \"house_Number\" : \"68\",\r\n    \"street\" : \"triq herbert demarco\",\r\n    \"locality\" : \"Pieta\",\r\n    \"country_Code\" : \"356\",\r\n    \"postcode\" : \"TVM 2003\",\r\n    \"mobile_Number\" : \"8898999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_Account.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"create_Account.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 19:42:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.9.gz"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Account Created\"\n}"
+				},
+				{
+					"name": "Create Admin Account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"admin_Account_Name\" : \"Mario\",\r\n    \"admin_Account_Surname\" : \"Borg\",\r\n    \"admin_Account_Email\" : \"marioborg@gmail.com\",\r\n    \"admin_Account_Password\" : \"UIDESIGN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_admin_Account.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"create_admin_Account.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 19:46:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.9.gz"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Account Created\"\n}"
+				},
+				{
+					"name": "Login (wrong credentials)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"ericspiteri22222@gmail.com\",\r\n    \"password\" : \"lirrr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/login.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"login.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 19:57:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.10.gz"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "SECURE_SESS_8278d29eef058314ea24538d7cd78b29=cfbc30b136dcf75302c4c0984248f5fe; expires=Thu, 01 May 2025 19:57:31 GMT; Max-Age=2592000; path=/; domain=localhost:8000; secure; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login Failed, Incorrect Credentials\"\n}"
+				},
+				{
+					"name": "Login (Correct Credentials)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"neilbugeja2003@gmail.com\",\r\n    \"password\" : \"passwort1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/login.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"login.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 19:58:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.9.gz"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "SECURE_SESS_8278d29eef058314ea24538d7cd78b29=3912cede03fd582652de1157c7b1b24c; expires=Thu, 01 May 2025 19:58:17 GMT; Max-Age=2592000; path=/; domain=localhost:8000; secure; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User Logged-In\",\n    \"role\": \"account\",\n    \"AccountID\": 4\n}"
+				},
+				{
+					"name": "Add Product (Admin Only)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serial_Number\" : \"292DSSDDS\",\r\n    \"product_Name\" : \"Saberling Microwave\",\r\n    \"price\" : \"300\",\r\n    \"warranty\" : \"1\",\r\n    \"product_Image_ID\" :\"Saberling.JPEG\",\r\n    \"Admin_Account_ID\" : \"90869\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/create_Product.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"create_Product.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 20:37:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.10.gz"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product Successfully Created.\"\n}"
+				},
+				{
+					"name": "Logout Attempt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serial_Number\" : \"292DSSDDS\",\r\n    \"product_Name\" : \"Saberling Microwave\",\r\n    \"price\" : \"300\",\r\n    \"warranty\" : \"1\",\r\n    \"product_Image_ID\" :\"Saberling.JPEG\",\r\n    \"Admin_Account_ID\" : \"90869\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/com/icemalta/kahuna/api/Endpoints/logout.php?1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"com",
+								"icemalta",
+								"kahuna",
+								"api",
+								"Endpoints",
+								"logout.php"
+							],
+							"query": [
+								{
+									"key": "1",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.27.4"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Apr 2025 20:54:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.4"
+						},
+						{
+							"key": "X-Xdebug-Profile-Filename",
+							"value": "/tmp/cachegrind.out.10.gz"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"You must be logged in first!\"\n}"
+				}
+			]
+		}
+	]
+}
