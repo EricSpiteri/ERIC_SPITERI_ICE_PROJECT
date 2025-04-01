@@ -24,31 +24,41 @@ function cors() {
     }
 }
 
+// Check if session is started and Logged-In is set
+if (!isset($_SESSION['Logged-In']) || $_SESSION['Logged-In'] !== true) {
+    sendResponse(['message' => "User Not Logged In"], 401);  // Unauthorized
+    exit;
+}
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['Logged-In'] === true){
 
     $requestData = json_decode(file_get_contents("php://input"), true);
-
     $product_Name = isset($requestData['product_Name']) ? $requestData['product_Name'] : '';
     $purchase_Date = isset($requestData['purchase_Date']) ? $requestData['purchase_Date'] : '';
+
+    if (empty($product_Name) || empty($purchase_Date)) {
+        sendResponse(['message' => "Product Name and Purchase Date are required."], 400);  // Bad Request
+        exit;
+    }
 
     $registration = new Registration($db);
     $product = new Product($db);
 
+    // Set product serial number for registration
     $registration->serial_Number = $product->serial_Number;
 
-    if($registration->createRegistration()){
-        echo json_encode(array("message" => "Product Successfully Registered."));
-      } else {
-        echo json_encode( array("message" => "Product Registration Failed."));
-     
-            }
-     
-         } else{
-            sendResponse(['message' => "User Not Logged In"]);
-         }
-         function sendResponse($data, $statusCode = 200) {
-            http_response_code($statusCode);
-            echo json_encode($data);
-        }
+    // Try to register the product
+    if ($registration->createRegistration()) {
+        sendResponse(['message' => "Product Successfully Registered."]);
+    } else {
+        sendResponse(['message' => "Product Registration Failed."], 500);  // Internal Server Error
+    }
+}
+
+// Helper function to send responses
+function sendResponse($data, $statusCode = 200) {
+    http_response_code($statusCode);
+    echo json_encode($data);
+}
+?>

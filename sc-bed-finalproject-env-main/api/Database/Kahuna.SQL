@@ -80,8 +80,8 @@ VALUES
 ('John', 'Doe', 'john.doe@example.com', 'ABC123', 'Maltese', 12, 'Main Street', 'TRM 1404', 'Valletta', '356', '12345678');
 
 /*Inserting Product DATA*/
-INSERT INTO Product (serial_Number, product_Name, warranty, price, product_Image_ID)
-VALUES ('KHWM8199911', 'CombiSpin Washing Machine', 2 , 600, 'WashingMachine.jpg');
+INSERT INTO Product (serial_Number, product_Name, warranty, price, product_Image_ID, `admin_Account_ID`)
+VALUES ('KHWM8199911', 'CombiSpin Washing Machine', 2 , 600, 'WashingMachine.jpg', 90869);
 
 /*Inserting New Registration*/
 INSERT INTO Registration (serial_Number, purchase_Date)

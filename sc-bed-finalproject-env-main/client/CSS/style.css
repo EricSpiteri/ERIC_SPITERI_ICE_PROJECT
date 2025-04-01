@@ -5,27 +5,24 @@
     display: flex;
 }
 
-main button{
-    color: lightgray;
-}
-
-.loginButton{
-    display: flex;
+.buttons{
     margin-left: 60%;
-    margin-top: 15px;
+    margin-top:1%;
+    
 }
 
-.loginButton img {
-
-    width:100%;
-    height:60%;
-    background-color: #ffffff;
+.loginButton img{
+    height:40px;
+    width: 40px;
+    background-color: white;
     border-radius: 50px;
 }
 
-
-.loginButton h2{
-    margin-left: 20px;
+.logoutButton input{
+    height: 35px;
+    width: 40px;
+    background-color: white;
+    border-radius: 15px;
 }
 
 .quadImages img{

@@ -15,7 +15,7 @@ document.getElementById('add_Product').addEventListener('submit', function(event
         product_Name: product_Name,
         price : price,
         warranty : warranty,
-        product_Image_ID : product_Image_ID,
+        product_Image_ID : product_Image_ID
     };
 
     // Send POST request to the backend

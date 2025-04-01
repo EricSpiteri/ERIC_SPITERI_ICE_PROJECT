@@ -61,7 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_Account->country = $requestData['country'] ?? '';
     $user_Account->locality = $requestData['locality'] ?? '';
 
+    function sendResponse($data) {
+        echo json_encode($data);
+        }
     
+    } 
 
 
 if($user_Account->createAccount()){
@@ -71,35 +75,5 @@ else{
     sendResponse(["message" => "Account Creation Failed"]);
 }
 
-} 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['Admin-logged-In'] === true) {
-
-    $requestData = json_decode(file_get_contents("php://input" ) ,true);
 
 
-    $admin_Account = new Admin_Account($db);
-
-
-    //Create an Admin account
-
-    // Assign values safely
-    $admin_Account->admin_Account_Name = $requestData['admin_Account_Name'] ?? '';
-    $admin_Account->admin_Account_Surname = $requestData['admin_Account_Surname'] ?? '';
-    $admin_Account->admin_Account_Email = $requestData['admin_Account_Email'] ?? '';
-    $admin_Account->admin_Account_Password = ($requestData['admin_Account_Password']) ?? '';
-
-    
-
-
-if($admin_Account->create_Admin_Account()){
-    sendResponse(["message" => "Account Created"]);
-}
-else{
-    sendResponse(["message" => "Account Creation Failed"]);
-}
-}
-
-function sendResponse($data) {
-    echo json_encode($data);
-}

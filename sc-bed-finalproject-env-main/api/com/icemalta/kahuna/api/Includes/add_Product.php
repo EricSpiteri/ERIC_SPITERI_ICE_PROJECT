@@ -1,19 +1,19 @@
 <?php
 
 
-class Admin{
+class Product{
 
 //db stuff
-private $conn;
-private $table = "Product";
+public $conn;
+public $table = "Product";
 
-private $alias = "u";
+public $alias = "u";
 
 //Adding Properties
-private static $db;
+public static $db;
 
 
-public int $serial_Number;
+public $serial_Number;
 public $product_Name;
 public $warranty;
 public $price;
@@ -54,6 +54,8 @@ public function __construct($db){
         $this->product_Name = htmlspecialchars(strip_tags($this->product_Name));
         $this->warranty = htmlspecialchars(strip_tags($this->warranty));
         $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->serial_Number = htmlspecialchars(strip_tags($this->serial_Number));
+        $this->product_Image_ID = htmlspecialchars(strip_tags($this->product_Image_ID));
         
         $stmt->bindParam(":serial_Number", $this->serial_Number);
         $stmt->bindParam(":product_Name", $this->product_Name);

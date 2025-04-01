@@ -1,6 +1,6 @@
 <?php
 
-class Product{
+class Registration{
 //db stuff
 private $conn;
 private $table = "Product";

@@ -150,7 +150,7 @@ class Admin_Account{
         $this->admin_Account_Name = htmlspecialchars(strip_tags($this->admin_Account_Name));
         $this->admin_Account_Surname = htmlspecialchars(strip_tags($this->admin_Account_Surname));
         $this->admin_Account_Password = htmlspecialchars(strip_tags($this->admin_Account_Password));
-        $this->account_Email = htmlspecialchars(strip_tags($this->admin_Account_Email));
+        $this->admin_ccount_Email = htmlspecialchars(strip_tags($this->admin_Account_Email));
     
     
         //Hashing password for security

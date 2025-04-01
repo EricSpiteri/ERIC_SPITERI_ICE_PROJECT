@@ -8,7 +8,9 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With");
 
-
+require_once("../Core/initialize.php");
+require_once("../Core/config.php");
+require_once("../Includes/add_Product.php");
 
 
 
@@ -54,16 +56,16 @@ session_start();
 
 //Create a New Product
 
-$product = new Product($db);
+$Product = new Product($db);
 
-    $Product->serial_Number = $requestData->serial_Number;
-    $Product->product_Name = $requestData->product_Name;
-    $Product->price = intval($requestData->price);
-    $Product->warranty = intval($requestData->warranty);
-    $Product->product_Image_ID =($requestData->product_Image_ID);
+    $Product->serial_Number = isset($requestData['serial_Number']) ? (int)$requestData['serial_Number'] : null;
+    $Product->product_Name = htmlspecialchars(strip_tags($requestData['product_Name']));
+    $Product->price = (float)$requestData['price'];
+    $Product->warranty = isset($requestData['warranty']) ? (int)$requestData['warranty'] : null;
+    $Product->product_Image_ID = isset($requestData['product_Image_ID']) ? htmlspecialchars(strip_tags($requestData['product_Image_ID'])) : null;
 
 
-if($user_Account->createAccount()){
+if($Product->add_Product()){
     echo json_encode(array("message" => "Product Successfully Created."));
 }
 else{
