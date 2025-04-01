@@ -14,6 +14,7 @@ document.getElementById('register_Account').addEventListener('submit', function(
     const house_Number = document.getElementById('house_Number').value;
     const street = document.getElementById('street').value;
     const locality = document.getElementById('locality').value;
+    const country = document.getElementById('country').value;
 
     const data = {
       account_Name : account_Name,
@@ -26,6 +27,7 @@ document.getElementById('register_Account').addEventListener('submit', function(
       house_Number : house_Number,
       street : street,
       locality : locality,
+      country : country,
     };
 
     // Send POST request to the backend
@@ -38,9 +40,9 @@ document.getElementById('register_Account').addEventListener('submit', function(
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message === 'User Account Created Successfully') {
+        if (data.message === 'Account Created') {
             // Redirect to the Home Page
-            window.location.href = '../HTML/index.php';
+            window.location.href = '../index.html';
         } else {
             // Show error message
             document.getElementById('error-message').textContent = data.message;

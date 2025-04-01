@@ -1,73 +1,54 @@
-<?php 
-//Register new product (ADMIN ONLY)
-cors();
-
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json");
-
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With");
-
-
-
-
-
-function cors()
-{
- // Allow from any origin
- if (isset($_SERVER['HTTP_ORIGIN'])) {
-
- header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
- header('Access-Control-Allow-Credentials: true');
- header('Access-Control-Max-Age: 86400');
- }
- if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
- if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-
- header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, DELETE");
- if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
- header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
- exit(0);
- }
-}
-
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-
-    $requestData = json_decode(file_get_contents("php://input" ) ,true);
-
-    $serial_Number = isset($requestData['serial_Number']) ? $requestData['serial_Number'] : '';
-
-    $product_Name = isset($requestData['product_Name']) ? $requestData['product_Name'] : '';
-
-    $price = isset($requestData['price']) ? $requestData['price'] : '';
-
-    $warranty = isset($requestData['warranty']) ? $requestData['warranty'] : '';
-
-    $product_Image_ID = isset($requestData['product_Image_ID']) ? $requestData['product_Image_ID'] : '';
-
-    }
-
-
+<?php
 session_start();
 
-//Create a New Product
+header("Content-Type: application/json");
 
-$product = new Product($db);
+cors(); 
+include_once("../Core/initialize.php");
+include_once("../Core/config.php");
+include_once("../Includes/create_Account.php");
 
-    $Product->serial_Number = $requestData->serial_Number;
-    $Product->product_Name = $requestData->product_Name;
-    $Product->price = intval($requestData->price);
-    $Product->warranty = intval($requestData->warranty);
-    $Product->product_Image_ID =($requestData->product_Image_ID);
+function cors() {
+    $allowedOrigins = ["http://localhost:8001", "http://localhost:3000", "http://127.0.0.1"];
 
+    if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowedOrigins)) {
+        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Max-Age: 86400');
+    }
 
-if($user_Account->createAccount()){
-    echo json_encode(array("message" => "Product Successfully Created."));
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, DELETE");
+        header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+        exit(0);
+    }
 }
-else{
-    echo json_encode(array("message" => "Product Creation Failed."));
-}
 
-?>
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['Logged-In'] === true){
+
+    $requestData = json_decode(file_get_contents("php://input"), true);
+
+    $product_Name = isset($requestData['product_Name']) ? $requestData['product_Name'] : '';
+    $purchase_Date = isset($requestData['purchase_Date']) ? $requestData['purchase_Date'] : '';
+
+    $registration = new Registration($db);
+    $product = new Product($db);
+
+    $registration->serial_Number = $product->serial_Number;
+
+    if($registration->createRegistration()){
+        echo json_encode(array("message" => "Product Successfully Registered."));
+      } else {
+        echo json_encode( array("message" => "Product Registration Failed."));
+     
+            }
+     
+         } else{
+            sendResponse(['message' => "User Not Logged In"]);
+         }
+         function sendResponse($data, $statusCode = 200) {
+            http_response_code($statusCode);
+            echo json_encode($data);
+        }

@@ -8,13 +8,13 @@ private $table = "Product";
 private $alias = "u";
 
 //table properties
-private $serial_Number;
-private $product_Name;
-private $price;
-private $warranty;
-private $purchase_Date;
+public $serial_Number;
+public $product_Name;
+public $price;
+public $warranty;
+public $purchase_Date;
 
-private $product_Image_ID;
+public $product_Image_ID;
 
 
 //constructor with db connection

@@ -32,11 +32,12 @@ CREATE TABLE Admin_Account
   PRIMARY KEY (admin_Account_ID)
 ) COMMENT 'An Account exclusively for Administrators';
 
-CREATE TABLE Customer
+CREATE TABLE Registration
 (
   customerID    INT (11)     NULL     AUTO_INCREMENT,
   AccountID     INT (11)    NULL,
   serial_Number VARCHAR (255) NOT NULL,
+  purchase_Date DATE NOT NULL,
   PRIMARY KEY (customerID)
 ) COMMENT 'The individual person the service is provided to';
 
@@ -56,13 +57,13 @@ ALTER TABLE Product
     FOREIGN KEY (admin_Account_ID)
     REFERENCES Admin_Account (admin_Account_ID);
 
-ALTER TABLE Customer
-  ADD CONSTRAINT FK_Account_TO_Customer
+ALTER TABLE Registration
+  ADD CONSTRAINT FK_Account_TO_Registration
     FOREIGN KEY (AccountID)
     REFERENCES Account (AccountID);
 
-ALTER TABLE Customer
-  ADD CONSTRAINT FK_Product_TO_Customer
+ALTER TABLE Registration
+  ADD CONSTRAINT FK_Product_TO_Registration
     FOREIGN KEY (serial_Number)
     REFERENCES Product (serial_Number);
 
@@ -82,10 +83,10 @@ VALUES
 INSERT INTO Product (serial_Number, product_Name, warranty, price, product_Image_ID)
 VALUES ('KHWM8199911', 'CombiSpin Washing Machine', 2 , 600, 'WashingMachine.jpg');
 
-/*Inserting New Customer Account*/
-INSERT INTO Customer (serial_Number)
+/*Inserting New Registration*/
+INSERT INTO Registration (serial_Number, purchase_Date)
 VALUES 
-('KHWM8199911');
+('KHWM8199911',01/01/2025);
 
 
 

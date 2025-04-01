@@ -67,7 +67,7 @@ public function createAccount(){
 
 
     //Hashing password for security
-    $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+    $this->password = password_hash($this->password, PASSWORD_BCRYPT);
 
     $this->country_Code = intval( filter_var($this->country_Code, FILTER_VALIDATE_INT));
     $this->mobile_Number = intval(filter_var($this->mobile_Number, FILTER_VALIDATE_INT));
@@ -96,4 +96,81 @@ public function createAccount(){
 
   }
 }
+
+class Admin_Account{
+
+    //db stuff
+    private $conn;
+    private $table = "Admin_Account";
+    
+    private $alias = "u";
+    
+    //Adding Properties
+    public $db;
+    
+    
+    public $admin_AccountID;
+    public $admin_Account_Name;
+    public $admin_Account_Surname;
+    public $admin_Account_Password;
+    public $admin_Account_Email;
+
+    
+    //constructor with db connection
+    // a function that is triggered automatically when an instance of the class is created
+    
+    public function __construct($db){
+        $this->conn = $db;
+        }
+        
+    
+    // Read all Admin Account records
+    public function read_Admin_Account(){
+        $query = "SELECT *
+                    FROM {$this->table} {$this->alias}
+                    ORDER BY {$this->alias}.admin_Account_ID ASC;";
+    
+        $stmt = $this->conn->prepare($query);
+    
+        $stmt->execute();
+    
+        return $stmt;
+    }
+        
+    //Create New  Admin Account
+    
+    public function create_Admin_Account(){
+        $query = "INSERT INTO {$this->table}
+        (admin_Account_Name, admin_Account_Surname, admin_Account_Password, admin_Account_Email)
+        VALUES (:admin_Account_Name, :admin_Account_Surname, :admin_Account_Password, :admin_Account_Email);";
+    
+        $stmt = $this->conn->prepare($query);
+    
+        //clean data sent by user for security
+        $this->admin_Account_Name = htmlspecialchars(strip_tags($this->admin_Account_Name));
+        $this->admin_Account_Surname = htmlspecialchars(strip_tags($this->admin_Account_Surname));
+        $this->admin_Account_Password = htmlspecialchars(strip_tags($this->admin_Account_Password));
+        $this->account_Email = htmlspecialchars(strip_tags($this->admin_Account_Email));
+    
+    
+        //Hashing password for security
+        $this->admin_Account_Password = password_hash($this->admin_Account_Password, PASSWORD_BCRYPT);
+    
+    
+    
+        //Binding parameters
+        $stmt->bindParam(":admin_Account_Name", $this->admin_Account_Name);
+        $stmt->bindParam(":admin_Account_Surname", $this->admin_Account_Surname);
+        $stmt->bindParam(":admin_Account_Password", $this->admin_Account_Password);
+        $stmt->bindParam(":admin_Account_Email", $this->admin_Account_Email);
+    
+        if($stmt->execute()){
+            return true;
+        }
+    
+        printf("Error %s. /n", $stmt->error);
+        return false;
+    
+      }
+    }
 ?>

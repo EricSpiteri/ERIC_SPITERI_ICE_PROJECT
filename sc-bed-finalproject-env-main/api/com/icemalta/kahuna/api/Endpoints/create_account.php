@@ -26,7 +26,7 @@ function cors()
  if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
 
- header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PATCH, DELETE");
+ header("Access-Control-Allow-Methods: POST");
  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
  header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
  exit(0);
@@ -36,6 +36,8 @@ function cors()
 
 session_start();
 
+$_SESSION['Admin-logged-In'] =false;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -44,15 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $user_Account = new User_Account($db);
 
-
-    //Create an account
+    //Create an User account
 
     // Assign values safely
     $user_Account->account_Name = $requestData['account_Name'] ?? '';
     $user_Account->account_Surname = $requestData['account_Surname'] ?? '';
     $user_Account->country_Code = isset($requestData['country_Code']) ? intval($requestData['country_Code']) : null;
     $user_Account->account_Email = $requestData['account_Email'] ?? '';
-    $user_Account->password = isset($requestData['password']) ? password_hash($requestData['password'], PASSWORD_DEFAULT) : null;
+    $user_Account->password = isset($requestData['password']) ? ($requestData['password']) : null;
     $user_Account->postcode = $requestData['postcode'] ?? '';
     $user_Account->house_Number = isset($requestData['house_Number']) ? intval($requestData['house_Number']) : null;
     $user_Account->street = $requestData['street'] ?? '';
@@ -64,9 +65,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 if($user_Account->createAccount()){
-    echo json_encode(array("message" => "Account Created"));
+    sendResponse(["message" => "Account Created"]);
 }
 else{
-    echo json_encode(array("message" => "Account Creation Failed"));
+    sendResponse(["message" => "Account Creation Failed"]);
 }
+
+} 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SESSION['Admin-logged-In'] === true) {
+
+    $requestData = json_decode(file_get_contents("php://input" ) ,true);
+
+
+    $admin_Account = new Admin_Account($db);
+
+
+    //Create an Admin account
+
+    // Assign values safely
+    $admin_Account->admin_Account_Name = $requestData['admin_Account_Name'] ?? '';
+    $admin_Account->admin_Account_Surname = $requestData['admin_Account_Surname'] ?? '';
+    $admin_Account->admin_Account_Email = $requestData['admin_Account_Email'] ?? '';
+    $admin_Account->admin_Account_Password = ($requestData['admin_Account_Password']) ?? '';
+
+    
+
+
+if($admin_Account->create_Admin_Account()){
+    sendResponse(["message" => "Account Created"]);
+}
+else{
+    sendResponse(["message" => "Account Creation Failed"]);
+}
+}
+
+function sendResponse($data) {
+    echo json_encode($data);
 }

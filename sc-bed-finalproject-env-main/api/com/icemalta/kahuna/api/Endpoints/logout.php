@@ -6,7 +6,7 @@ header("Content-Type: application/json");
 cors(); 
 include_once("../Core/initialize.php");
 include_once("../Core/config.php");
-include_once("../Includes/admin.php");
+include_once("../Includes/create_Account.php");
 
 
 
@@ -31,9 +31,22 @@ function cors()
  }
 }
 
-
-
-
 session_start();
 
-$requestData = json_decode(file_get_contents("php://input"), true);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION = array();
+
+    // Destroy the session (logout)
+    session_destroy();
+
+    // Send a JSON response
+    sendResponse(['message' => 'Successfully logged out']);
+} else {
+    sendResponse(['message' => 'Invalid request method'], 405);
+}
+
+function sendResponse($data, $statusCode = 200)
+{
+    http_response_code($statusCode);
+    echo json_encode($data);
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../Bootstrap/css/Bootstrap.css">
+    <link rel="stylesheet" href="../CSS/Register.css">
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="title">
+            <h1 style="margin-left: 50px; padding-top:10px;">Register</h1>
+        </div>
+    </header>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.php">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="HTML/Products.html">Purchase Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HTML/Registrations.html">Your Registrations</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"></a></li>
+            <li><a class="dropdown-item" href="./Contact.html">Contact Us</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./FAQ.html">Frequently Asked Questions</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+<br>
+<br>
+
+
+    <!--Registration Form-->
+    <main>
+        <div class="container">
+            <form id="product_Registration">
+            <h1>Register New Appliance</h1>
+            <br>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                    <select id="product_Name" name="product_Name" class="form-control" required>
+                        <option value="">Please Select Product</option>
+                        <option value="combi_spin">CombiSpin Washing Machine</option>
+                        <option value="combi_spin_dry">CombiSpin + Dry Washing Machine</option>
+                        <option value="combi_grill">CombiGrill Microwave</option>
+                        <option value="k5_pump">K5 Water Pump</option>
+                        <option value="k5_heated_pump">K5 Heated Water Pump</option>
+                        <option value="smart_switch_lite">Smart Switch Lite</option>
+                        <option value="smart_switch_pro">Smart Switch Pro</option>
+                        <option value="smart_switch_pro_v2">Smart Switch Pro V2</option>
+                        <option value="smart_mug">Smart Heated Mug</option>
+                        <option value="smart_bulb">Smart Bulb 001</option>
+                    </select>
+                </div>
+
+                <div class = "col-4">
+                    <label>Purchase Date</label>
+                    <input type="date" name="purchase_Date" id="purchase_Date" class="form-control" placeholder="Purchase Date" required>
+                </div>
+                  
+
+            <br>
+
+        
+
+           </div>
+
+           <br>
+           <br>
+           <br>
+
+         <!--Submit Button-->
+         <input type="submit" value="Register New Appliance">
+            </form>
+        </div>
+    </main>
+
+    <br>
+    <br>
+    <br>
+
+   <!--Footer-->
+
+
+   <script src="../Javascript/register_Product.JS"></script>
+    
+</body>
+</html>
